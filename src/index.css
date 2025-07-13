@@ -17,6 +17,11 @@
     background-color: #fdfcfa;
     color: #3c362f;
   }
+
+  body.dark {
+    background-color: #121212;
+    color: #ede4d9;
+  }
 }
 
 @layer components {
