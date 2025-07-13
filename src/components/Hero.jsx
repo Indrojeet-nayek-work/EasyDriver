@@ -54,26 +54,26 @@ const Hero = () => {
           {/* Trust indicators */}
           <div className="pt-12 grid grid-cols-3 gap-4 sm:gap-8 max-w-2xl mx-auto">
             <div className="text-center">
-              <div className="text-2xl sm:text-3xl font-semibold text-primary-700 dark:text-primary-400 mb-2">
+              <div className="text-2xl sm:text-3xl font-semibold text-primary-700 dark:text-dark-accent mb-2">
                 500+
               </div>
-              <div className="text-xs sm:text-sm text-neutral-medium-grey dark:text-neutral-warm-grey uppercase tracking-wide">
+              <div className="text-xs sm:text-sm text-neutral-medium-grey dark:text-dark-muted-text uppercase tracking-wide">
                 Satisfied Clients
               </div>
             </div>
             <div className="text-center">
-              <div className="text-2xl sm:text-3xl font-semibold text-primary-700 dark:text-primary-400 mb-2">
+              <div className="text-2xl sm:text-3xl font-semibold text-primary-700 dark:text-dark-accent mb-2">
                 4.9
               </div>
-              <div className="text-xs sm:text-sm text-neutral-medium-grey dark:text-neutral-warm-grey uppercase tracking-wide">
+              <div className="text-xs sm:text-sm text-neutral-medium-grey dark:text-dark-muted-text uppercase tracking-wide">
                 Average Rating
               </div>
             </div>
             <div className="text-center">
-              <div className="text-2xl sm:text-3xl font-semibold text-primary-700 dark:text-primary-400 mb-2">
+              <div className="text-2xl sm:text-3xl font-semibold text-primary-700 dark:text-dark-accent mb-2">
                 5+
               </div>
-              <div className="text-xs sm:text-sm text-neutral-medium-grey dark:text-neutral-warm-grey uppercase tracking-wide">
+              <div className="text-xs sm:text-sm text-neutral-medium-grey dark:text-dark-muted-text uppercase tracking-wide">
                 Years Experience
               </div>
             </div>
