@@ -2,13 +2,25 @@ import React from "react";
 import {
   FiPhone,
   FiMail,
-  FiClock,
+  FiMapPin,
   FiInstagram,
   FiFacebook,
   FiTwitter,
+  FiNavigation,
 } from "react-icons/fi";
 
 const Contact = () => {
+  const address = {
+    street: "123 Main Street",
+    city: "Downtown",
+    state: "State",
+    zip: "12345",
+    country: "USA",
+  };
+
+  const fullAddress = `${address.street}, ${address.city}, ${address.state} ${address.zip}, ${address.country}`;
+  const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(fullAddress)}`;
+
   const contactInfo = [
     {
       icon: <FiPhone size={24} />,
@@ -43,12 +55,6 @@ const Contact = () => {
       bgColor: "bg-fun-yellow/80",
       emoji: "📧",
     },
-  ];
-
-  const businessHours = [
-    { day: "Monday - Friday", hours: "6:00 AM - 10:00 PM", emoji: "🌅" },
-    { day: "Saturday", hours: "7:00 AM - 10:00 PM", emoji: "🌞" },
-    { day: "Sunday", hours: "8:00 AM - 9:00 PM", emoji: "😴" },
   ];
 
   const socialLinks = [
@@ -159,41 +165,49 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* Business Hours & Quick Rental CTA */}
+          {/* Location Details & Quick Rental CTA */}
           <div>
-            <div className="bg-gradient-to-br from-fun-pink/60 to-fun-blue/60 backdrop-blur-sm rounded-3xl p-8 border-4 border-white shadow-xl">
+            {/* Location Section */}
+            <div className="bg-gradient-to-br from-fun-pink/60 to-fun-blue/60 backdrop-blur-sm rounded-3xl p-8 border-4 border-white shadow-xl mb-8">
               <div className="flex items-center mb-6">
                 <div className="w-16 h-16 bg-white/80 text-gray-700 rounded-2xl flex items-center justify-center shadow-lg">
-                  <FiClock size={24} />
+                  <FiMapPin size={24} />
                 </div>
                 <div className="ml-4">
                   <h3 className="text-2xl font-bold text-gray-800">
-                    When We're Available!
+                    Our Location!
                   </h3>
-                  <span className="text-2xl">⏰</span>
+                  <span className="text-2xl">📍</span>
                 </div>
               </div>
 
-              <div className="space-y-4">
-                {businessHours.map((schedule, index) => (
-                  <div
-                    key={index}
-                    className="flex justify-between items-center py-3 px-4 bg-white/60 rounded-2xl border-2 border-white/80"
-                  >
-                    <div className="flex items-center gap-2">
-                      <span className="text-xl">{schedule.emoji}</span>
-                      <span className="font-bold text-gray-800">
-                        {schedule.day}
-                      </span>
-                    </div>
-                    <span className="text-gray-700 font-medium">
-                      {schedule.hours}
-                    </span>
-                  </div>
-                ))}
+              {/* Address */}
+              <div className="bg-white/60 rounded-2xl p-6 border-2 border-white mb-6">
+                <h4 className="font-bold text-lg mb-3 text-gray-800 flex items-center gap-2">
+                  <span className="text-2xl">🏢</span>
+                  Street Address
+                </h4>
+                <p className="text-gray-800 leading-relaxed font-medium text-lg">
+                  {address.street}
+                  <br />
+                  {address.city}, {address.state} {address.zip}
+                  <br />
+                  {address.country}
+                </p>
               </div>
 
-              <div className="mt-8 p-6 bg-white/50 rounded-2xl border-2 border-white">
+              {/* Google Maps Button */}
+              <a
+                href={mapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-fun-green w-full justify-center inline-flex items-center gap-2 text-lg font-bold mb-6"
+              >
+                📍 Open in Google Maps!
+              </a>
+
+              {/* Emergency Contact */}
+              <div className="bg-white/50 rounded-2xl p-6 border-2 border-white">
                 <div className="flex items-center gap-2 mb-2">
                   <span className="text-2xl">🚨</span>
                   <h4 className="font-bold text-gray-800">Emergency Contact</h4>
@@ -211,7 +225,7 @@ const Contact = () => {
             </div>
 
             {/* Quick Rental CTA */}
-            <div className="mt-8 bg-gradient-to-r from-primary-500 to-primary-600 rounded-3xl p-8 text-white text-center shadow-xl border-4 border-white transform hover:scale-105 transition-transform duration-300">
+            <div className="bg-gradient-to-r from-primary-500 to-primary-600 rounded-3xl p-8 text-white text-center shadow-xl border-4 border-white transform hover:scale-105 transition-transform duration-300">
               <div className="text-5xl mb-4">🚗💨</div>
               <h3 className="text-2xl font-bold mb-4">Ready to Rent?</h3>
               <p className="mb-6 opacity-90 text-lg">
