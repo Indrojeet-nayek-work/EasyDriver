@@ -116,13 +116,13 @@ const Testimonials = () => {
                     {testimonial.initials}
                   </div>
                   <div className="flex-1">
-                    <h4 className="font-semibold text-base sm:text-lg text-primary-800 dark:text-primary-200">
+                    <h4 className="font-semibold text-base sm:text-lg text-primary-800 dark:text-dark-primary-text">
                       {testimonial.name}
                     </h4>
-                    <p className="text-xs sm:text-sm text-neutral-medium-grey dark:text-neutral-warm-grey">
+                    <p className="text-xs sm:text-sm text-neutral-medium-grey dark:text-dark-muted-text">
                       {testimonial.position}
                     </p>
-                    <p className="text-xs text-neutral-medium-grey dark:text-neutral-warm-grey">
+                    <p className="text-xs text-neutral-medium-grey dark:text-dark-muted-text">
                       {testimonial.company}
                     </p>
                   </div>
