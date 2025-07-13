@@ -5,12 +5,15 @@ import {
   FiUsers,
   FiWind,
   FiSettings,
+  FiChevronDown,
+  FiChevronUp,
 } from "react-icons/fi";
 
 const FleetCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
+  const [expandedFeatures, setExpandedFeatures] = useState({});
 
   const vehicles = [
     {
@@ -79,6 +82,13 @@ const FleetCarousel = () => {
     setCurrentIndex(index);
   };
 
+  const toggleFeatures = (vehicleId) => {
+    setExpandedFeatures((prev) => ({
+      ...prev,
+      [vehicleId]: !prev[vehicleId],
+    }));
+  };
+
   // Touch handlers for mobile swipe
   const handleTouchStart = (e) => {
     setTouchEnd(null);
@@ -116,15 +126,15 @@ const FleetCarousel = () => {
   return (
     <section
       id="fleet"
-      className="section-padding bg-neutral-cream dark:bg-neutral-charcoal"
+      className="section-padding bg-neutral-cream dark:bg-dark-bg"
     >
       <div className="container px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 sm:mb-16 space-y-4 sm:space-y-6">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-primary-800 dark:text-primary-200">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-primary-800 dark:text-dark-primary-text">
             Affordable
             <span className="font-semibold"> Collection</span>
           </h2>
-          <p className="text-lg sm:text-xl text-neutral-medium-grey dark:text-neutral-warm-grey max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl text-neutral-medium-grey dark:text-dark-muted-text max-w-3xl mx-auto leading-relaxed">
             Discover our carefully selected vehicles, each maintained to high
             standards for your comfort and safety at competitive rates.
           </p>
@@ -144,7 +154,7 @@ const FleetCarousel = () => {
             >
               {vehicles.map((vehicle) => (
                 <div key={vehicle.id} className="w-full flex-shrink-0">
-                  <div className="card-premium dark:bg-neutral-deep-brown dark:border-neutral-medium-grey/30">
+                  <div className="bg-neutral-warm-white dark:bg-dark-card-border rounded-xl sm:rounded-2xl shadow-soft border border-neutral-muted-grey/30 dark:border-dark-card-border-alt p-6 sm:p-8 hover:shadow-warm transition-all duration-300">
                     <div className="relative mb-6 sm:mb-8">
                       <img
                         src={vehicle.image}
@@ -153,7 +163,7 @@ const FleetCarousel = () => {
                         loading="lazy"
                       />
                       <div className="absolute top-4 sm:top-6 right-4 sm:right-6">
-                        <span className="px-3 sm:px-4 py-1.5 sm:py-2 bg-neutral-warm-white/95 dark:bg-neutral-charcoal/95 backdrop-blur-sm rounded-lg sm:rounded-xl text-xs sm:text-sm font-medium text-primary-700 dark:text-primary-400 border border-neutral-muted-grey/30 dark:border-neutral-medium-grey/30">
+                        <span className="px-3 sm:px-4 py-1.5 sm:py-2 bg-neutral-warm-white/95 dark:bg-dark-card-border/95 backdrop-blur-sm rounded-lg sm:rounded-xl text-xs sm:text-sm font-medium text-primary-700 dark:text-dark-accent border border-neutral-muted-grey/30 dark:border-dark-card-border-alt">
                           Climate Control
                         </span>
                       </div>
@@ -162,52 +172,88 @@ const FleetCarousel = () => {
                     <div className="space-y-4 sm:space-y-6">
                       <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-3 sm:gap-0">
                         <div className="space-y-1 sm:space-y-2">
-                          <h3 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-primary-800 dark:text-primary-200">
+                          <h3 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-primary-800 dark:text-dark-primary-text">
                             {vehicle.name}
                           </h3>
-                          <p className="text-base sm:text-lg text-neutral-medium-grey dark:text-neutral-warm-grey">
+                          <p className="text-base sm:text-lg text-neutral-medium-grey dark:text-dark-muted-text">
                             {vehicle.type}
                           </p>
                         </div>
                         <div className="text-left sm:text-right">
-                          <div className="text-xl sm:text-2xl font-semibold text-primary-700 dark:text-primary-400">
+                          <div className="text-xl sm:text-2xl font-semibold text-primary-700 dark:text-dark-accent">
                             {vehicle.price}
                           </div>
                         </div>
                       </div>
 
                       <div className="flex flex-wrap items-center gap-4 sm:gap-6">
-                        <div className="flex items-center gap-2 text-neutral-medium-grey dark:text-neutral-warm-grey">
+                        <div className="flex items-center gap-2 text-neutral-medium-grey dark:text-dark-muted-text">
                           <FiUsers size={16} />
                           <span className="text-sm">
                             {vehicle.seats} passengers
                           </span>
                         </div>
-                        <div className="flex items-center gap-2 text-neutral-medium-grey dark:text-neutral-warm-grey">
+                        <div className="flex items-center gap-2 text-neutral-medium-grey dark:text-dark-muted-text">
                           <FiSettings size={16} />
                           <span className="text-sm">
                             {vehicle.transmission}
                           </span>
                         </div>
-                        <div className="flex items-center gap-2 text-neutral-medium-grey dark:text-neutral-warm-grey">
+                        <div className="flex items-center gap-2 text-neutral-medium-grey dark:text-dark-muted-text">
                           <FiWind size={16} />
                           <span className="text-sm">Climate Control</span>
                         </div>
                       </div>
 
+                      {/* Collapsible Features for Mobile */}
                       <div className="space-y-3">
-                        <h4 className="font-semibold text-primary-800 dark:text-primary-200">
-                          Key Features
-                        </h4>
-                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-3">
-                          {vehicle.features.map((feature, index) => (
-                            <div
-                              key={index}
-                              className="px-3 sm:px-4 py-2 bg-neutral-beige dark:bg-neutral-medium-grey/30 rounded-lg sm:rounded-xl text-sm text-neutral-charcoal dark:text-neutral-beige border border-neutral-muted-grey/30 dark:border-neutral-medium-grey/30"
-                            >
-                              {feature}
-                            </div>
-                          ))}
+                        <button
+                          onClick={() => toggleFeatures(vehicle.id)}
+                          className="flex items-center justify-between w-full sm:hidden font-semibold text-primary-800 dark:text-dark-primary-text"
+                        >
+                          <span>Key Features</span>
+                          {expandedFeatures[vehicle.id] ? (
+                            <FiChevronUp size={20} />
+                          ) : (
+                            <FiChevronDown size={20} />
+                          )}
+                        </button>
+
+                        {/* Desktop Features - Always Visible */}
+                        <div className="hidden sm:block">
+                          <h4 className="font-semibold text-primary-800 dark:text-dark-primary-text mb-3">
+                            Key Features
+                          </h4>
+                          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-3">
+                            {vehicle.features.map((feature, index) => (
+                              <div
+                                key={index}
+                                className="px-3 sm:px-4 py-2 bg-neutral-beige dark:bg-dark-card-border-alt rounded-lg sm:rounded-xl text-sm text-neutral-charcoal dark:text-dark-primary-text border border-neutral-muted-grey/30 dark:border-dark-card-border"
+                              >
+                                {feature}
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+
+                        {/* Mobile Features - Collapsible */}
+                        <div
+                          className={`sm:hidden transition-all duration-300 overflow-hidden ${
+                            expandedFeatures[vehicle.id]
+                              ? "max-h-96 opacity-100"
+                              : "max-h-0 opacity-0"
+                          }`}
+                        >
+                          <div className="grid grid-cols-1 gap-2 mt-3">
+                            {vehicle.features.map((feature, index) => (
+                              <div
+                                key={index}
+                                className="px-3 py-2 bg-neutral-beige dark:bg-dark-card-border-alt rounded-lg text-sm text-neutral-charcoal dark:text-dark-primary-text border border-neutral-muted-grey/30 dark:border-dark-card-border"
+                              >
+                                {feature}
+                              </div>
+                            ))}
+                          </div>
                         </div>
                       </div>
 
@@ -221,26 +267,26 @@ const FleetCarousel = () => {
             </div>
           </div>
 
-          {/* Navigation arrows */}
+          {/* Navigation arrows - Transparent on mobile */}
           <button
             onClick={prevSlide}
-            className="absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 bg-neutral-warm-white/95 dark:bg-neutral-charcoal/95 backdrop-blur-sm p-3 sm:p-4 rounded-xl sm:rounded-2xl shadow-gentle hover:shadow-soft transition-all duration-300 border border-neutral-muted-grey/30 dark:border-neutral-medium-grey/30 z-10"
+            className="absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 bg-black/20 sm:bg-neutral-warm-white/95 dark:bg-dark-card-border/95 backdrop-blur-sm p-3 sm:p-4 rounded-xl sm:rounded-2xl shadow-gentle hover:shadow-soft transition-all duration-300 border border-transparent sm:border-neutral-muted-grey/30 dark:border-dark-card-border-alt z-10"
             aria-label="Previous vehicle"
           >
             <FiChevronLeft
               size={20}
-              className="text-primary-700 dark:text-primary-400"
+              className="text-white sm:text-primary-700 dark:text-dark-accent"
             />
           </button>
 
           <button
             onClick={nextSlide}
-            className="absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 bg-neutral-warm-white/95 dark:bg-neutral-charcoal/95 backdrop-blur-sm p-3 sm:p-4 rounded-xl sm:rounded-2xl shadow-gentle hover:shadow-soft transition-all duration-300 border border-neutral-muted-grey/30 dark:border-neutral-medium-grey/30 z-10"
+            className="absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 bg-black/20 sm:bg-neutral-warm-white/95 dark:bg-dark-card-border/95 backdrop-blur-sm p-3 sm:p-4 rounded-xl sm:rounded-2xl shadow-gentle hover:shadow-soft transition-all duration-300 border border-transparent sm:border-neutral-muted-grey/30 dark:border-dark-card-border-alt z-10"
             aria-label="Next vehicle"
           >
             <FiChevronRight
               size={20}
-              className="text-primary-700 dark:text-primary-400"
+              className="text-white sm:text-primary-700 dark:text-dark-accent"
             />
           </button>
 
@@ -252,8 +298,8 @@ const FleetCarousel = () => {
                 onClick={() => goToSlide(index)}
                 className={`h-2 rounded-full transition-all duration-300 ${
                   index === currentIndex
-                    ? "w-6 sm:w-8 bg-primary-600 dark:bg-primary-400"
-                    : "w-2 bg-neutral-warm-grey dark:bg-neutral-medium-grey hover:bg-primary-400 dark:hover:bg-primary-500"
+                    ? "w-6 sm:w-8 bg-primary-600 dark:bg-dark-accent"
+                    : "w-2 bg-neutral-warm-grey dark:bg-dark-muted-text hover:bg-primary-400 dark:hover:bg-dark-hover-highlight"
                 }`}
                 aria-label={`Go to vehicle ${index + 1}`}
               />
