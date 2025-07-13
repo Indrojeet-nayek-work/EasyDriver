@@ -38,7 +38,6 @@ function App() {
             <HowItWorks />
             <Contact />
             <Testimonials />
-            <FindUs />
           </main>
         </div>
       </div>
