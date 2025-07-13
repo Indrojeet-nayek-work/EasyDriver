@@ -140,7 +140,7 @@ const FleetCarousel = () => {
           </p>
         </div>
 
-        <div className="relative max-w-5xl mx-auto">
+        <div className="relative max-w-5xl mx-auto px-6 sm:px-20">
           {/* Main carousel container */}
           <div
             className="overflow-hidden rounded-2xl sm:rounded-3xl"
