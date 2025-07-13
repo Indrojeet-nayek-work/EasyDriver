@@ -89,7 +89,7 @@ const Testimonials = () => {
   return (
     <section
       id="testimonials"
-      className="section-padding bg-neutral-warm-white dark:bg-neutral-charcoal"
+      className="section-padding bg-neutral-warm-white dark:bg-dark-bg"
     >
       <div className="container px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 sm:mb-20 space-y-4 sm:space-y-6">
