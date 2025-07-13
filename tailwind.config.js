@@ -15,6 +15,16 @@ export default {
           500: "#f59e0b",
           600: "#d97706",
         },
+        fun: {
+          green: "#CDE9D6",
+          blue: "#D2E4FD",
+          yellow: "#FFF1CB",
+          pink: "#F8D3CF",
+          "green-dark": "#A8D4B8",
+          "blue-dark": "#A8C8F9",
+          "yellow-dark": "#F5E29B",
+          "pink-dark": "#F2B8B3",
+        },
       },
       fontFamily: {
         sans: ["Inter", "system-ui", "sans-serif"],
