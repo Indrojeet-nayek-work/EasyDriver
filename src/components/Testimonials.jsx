@@ -93,11 +93,11 @@ const Testimonials = () => {
     >
       <div className="container px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 sm:mb-20 space-y-4 sm:space-y-6">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-primary-800 dark:text-primary-200">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-primary-800 dark:text-dark-primary-text">
             Client
             <span className="font-semibold"> Reviews</span>
           </h2>
-          <p className="text-lg sm:text-xl text-neutral-medium-grey dark:text-neutral-warm-grey max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl text-neutral-medium-grey dark:text-dark-muted-text max-w-3xl mx-auto leading-relaxed">
             Discover why customers choose EasyDrive for their car rental needs.
             Quality service, reflected in every review.
           </p>
