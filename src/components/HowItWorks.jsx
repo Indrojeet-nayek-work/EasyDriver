@@ -1,102 +1,85 @@
 import React from "react";
-import { FiSearch, FiPhone, FiCheck } from "react-icons/fi";
+import { FiSearch, FiPhone, FiCheck, FiArrowRight } from "react-icons/fi";
 
 const HowItWorks = () => {
   const steps = [
     {
       id: 1,
-      icon: <FiSearch size={40} />,
-      title: "Explore Cool Cars",
+      icon: <FiSearch size={32} />,
+      title: "Explore Collection",
       description:
-        "Browse our awesome fleet and find the perfect ride for your adventure! Check out all the cool features and availability. 🚗✨",
-      color: "bg-fun-blue",
-      bgGradient: "from-fun-blue to-fun-blue-dark",
-      emoji: "👀",
+        "Browse our premium fleet and discover the perfect vehicle for your journey. Each car is meticulously maintained and equipped with modern amenities.",
+      color: "bg-primary-100",
+      textColor: "text-primary-700",
     },
     {
       id: 2,
-      icon: <FiPhone size={40} />,
-      title: "Call or WhatsApp Us",
+      icon: <FiPhone size={32} />,
+      title: "Connect With Us",
       description:
-        "Hit us up via phone or WhatsApp! Our super friendly team will help you rent your dream car and answer all your questions. 📱💬",
-      color: "bg-fun-green",
-      bgGradient: "from-fun-green to-fun-green-dark",
-      emoji: "📞",
+        "Contact our dedicated team via phone or WhatsApp. Our specialists will assist you in selecting the ideal vehicle and handling your reservation.",
+      color: "bg-primary-100",
+      textColor: "text-primary-700",
     },
     {
       id: 3,
-      icon: <FiCheck size={40} />,
-      title: "Confirm & Drive Away!",
+      icon: <FiCheck size={32} />,
+      title: "Begin Your Journey",
       description:
-        "Complete your rental, get your confirmation, and enjoy your amazing hassle-free ride with EasyDrive! Ready for adventure! 🎉🚗",
-      color: "bg-fun-pink",
-      bgGradient: "from-fun-pink to-fun-pink-dark",
-      emoji: "🎉",
+        "Complete your reservation, receive confirmation details, and enjoy a seamless, premium driving experience with our comprehensive support.",
+      color: "bg-primary-100",
+      textColor: "text-primary-700",
     },
   ];
 
   return (
     <section
       id="how-it-works"
-      className="section-padding bg-gradient-to-br from-fun-green/20 to-fun-blue/20"
+      className="section-padding bg-neutral-warm-white"
     >
       <div className="container">
-        <div className="text-center mb-16">
-          <div className="text-6xl mb-4">⚡🚗⚡</div>
-          <h2 className="text-4xl font-bold mb-4 text-gray-800">
-            How It Works
+        <div className="text-center mb-20 space-y-6">
+          <h2 className="text-4xl lg:text-5xl font-light text-primary-800">
+            Seamless
+            <span className="font-semibold"> Process</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Getting your perfect rental car is super easy! Just 3 simple steps
-            to your dream ride! 🎯
+          <p className="text-xl text-neutral-medium-grey max-w-3xl mx-auto leading-relaxed">
+            Experience our streamlined approach to premium car rental. Three
+            simple steps to your perfect vehicle.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16">
           {steps.map((step, index) => (
             <div key={step.id} className="relative">
-              {/* Fun connection line - hidden on mobile, visible on desktop */}
+              {/* Connection line - hidden on mobile, visible on desktop */}
               {index < steps.length - 1 && (
-                <div className="hidden md:block absolute top-20 left-full w-full h-2 bg-gradient-to-r from-fun-yellow to-fun-pink rounded-full z-0 transform rotate-1">
-                  <div
-                    className="absolute top-1/2 right-0 transform translate-x-1 -translate-y-1/2 w-6 h-6 bg-fun-yellow rounded-full shadow-lg animate-bounce"
-                    style={{ animationDelay: `${index * 0.5}s` }}
-                  ></div>
+                <div className="hidden md:block absolute top-12 left-full w-full h-px bg-gradient-to-r from-neutral-warm-grey via-neutral-muted-grey to-transparent z-0">
+                  <div className="absolute top-1/2 right-0 transform translate-x-2 -translate-y-1/2 w-2 h-2 bg-neutral-warm-grey rounded-full"></div>
                 </div>
               )}
 
-              <div className="relative z-10 text-center transform hover:scale-105 transition-transform duration-300">
-                {/* Fun step number */}
-                <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-fun-yellow to-fun-yellow-dark rounded-full mb-6 relative shadow-lg border-4 border-white">
-                  <span className="text-3xl font-bold text-gray-800">
+              <div className="relative z-10 text-center space-y-6">
+                {/* Step number */}
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-neutral-beige rounded-2xl border border-neutral-muted-grey/30 mb-6">
+                  <span className="text-2xl font-semibold text-primary-800">
                     {step.id}
                   </span>
-                  <div className="absolute -top-3 -right-3 w-8 h-8 bg-gradient-to-r from-primary-500 to-primary-600 rounded-full flex items-center justify-center shadow-lg">
-                    <span className="text-white text-lg">✓</span>
-                  </div>
                 </div>
 
-                {/* Fun emoji */}
+                {/* Icon container */}
                 <div
-                  className="text-5xl mb-4 animate-bounce"
-                  style={{ animationDelay: `${index * 0.2}s` }}
-                >
-                  {step.emoji}
-                </div>
-
-                {/* Fun icon container */}
-                <div
-                  className={`inline-flex items-center justify-center w-24 h-24 bg-gradient-to-r ${step.bgGradient} rounded-3xl mb-6 text-gray-800 shadow-xl border-4 border-white transform rotate-3 hover:rotate-0 transition-transform duration-300`}
+                  className={`inline-flex items-center justify-center w-20 h-20 ${step.color} rounded-2xl mb-6 ${step.textColor} shadow-gentle`}
                 >
                   {step.icon}
                 </div>
 
                 {/* Content */}
-                <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-6 shadow-lg border-2 border-fun-yellow/30">
-                  <h3 className="text-2xl font-bold mb-4 text-gray-800">
+                <div className="space-y-4">
+                  <h3 className="text-2xl font-semibold text-primary-800">
                     {step.title}
                   </h3>
-                  <p className="text-gray-600 leading-relaxed">
+                  <p className="text-neutral-medium-grey leading-relaxed">
                     {step.description}
                   </p>
                 </div>
@@ -105,35 +88,36 @@ const HowItWorks = () => {
           ))}
         </div>
 
-        {/* Fun additional info */}
-        <div className="mt-16 bg-gradient-to-r from-fun-pink/80 to-fun-yellow/80 backdrop-blur-sm rounded-3xl p-8 text-center border-4 border-white shadow-2xl">
-          <div className="text-5xl mb-4">🤔💡</div>
-          <h3 className="text-2xl font-bold mb-4 text-gray-800">
-            Need Some Help?
-          </h3>
-          <p className="text-gray-700 mb-6 max-w-2xl mx-auto text-lg">
-            Our super awesome customer service team is here to help you through
-            the entire rental process! From picking your ride to returning it,
-            we'll make your experience totally smooth and fun! 🌟
-          </p>
+        {/* Support section */}
+        <div className="mt-20 card-premium max-w-4xl mx-auto text-center">
+          <div className="space-y-6">
+            <h3 className="text-2xl lg:text-3xl font-semibold text-primary-800">
+              Need Assistance?
+            </h3>
+            <p className="text-lg text-neutral-medium-grey leading-relaxed max-w-2xl mx-auto">
+              Our dedicated customer service team is available throughout your
+              entire journey. From vehicle selection to return, we ensure your
+              experience exceeds expectations.
+            </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="tel:+1234567890"
-              className="btn-fun-green inline-flex items-center gap-2 text-lg"
-            >
-              <FiPhone size={20} />
-              Call Us Now! 📞
-            </a>
-            <a
-              href="https://wa.me/1234567890"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-fun-blue inline-flex items-center gap-2 text-lg"
-            >
-              <span className="text-2xl">💬</span>
-              WhatsApp Us!
-            </a>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+              <a
+                href="tel:+1234567890"
+                className="btn-primary inline-flex items-center gap-3"
+              >
+                <FiPhone size={20} />
+                Contact Us
+              </a>
+              <a
+                href="https://wa.me/1234567890"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-secondary inline-flex items-center gap-3"
+              >
+                WhatsApp Support
+                <FiArrowRight size={20} />
+              </a>
+            </div>
           </div>
         </div>
       </div>
