@@ -109,7 +109,7 @@ const Testimonials = () => {
             {testimonials.slice(0, 3).map((testimonial) => (
               <div
                 key={testimonial.id}
-                className="card-premium dark:bg-neutral-deep-brown dark:border-neutral-medium-grey/30 space-y-4 sm:space-y-6"
+                className="card-premium dark:bg-dark-card-border dark:border-dark-card-border-alt space-y-4 sm:space-y-6"
               >
                 <div className="flex items-center space-x-3 sm:space-x-4">
                   <div className="w-12 sm:w-14 h-12 sm:h-14 bg-primary-100 dark:bg-primary-900/20 rounded-xl sm:rounded-2xl flex items-center justify-center text-primary-700 dark:text-primary-400 font-semibold text-base sm:text-lg">
@@ -151,7 +151,7 @@ const Testimonials = () => {
                     key={testimonial.id}
                     className="w-full flex-shrink-0 px-2"
                   >
-                    <div className="card-premium dark:bg-neutral-deep-brown dark:border-neutral-medium-grey/30 space-y-4 sm:space-y-6">
+                    <div className="card-premium dark:bg-dark-card-border dark:border-dark-card-border-alt space-y-4 sm:space-y-6">
                       <div className="flex items-center space-x-3 sm:space-x-4">
                         <div className="w-14 sm:w-16 h-14 sm:h-16 bg-primary-100 dark:bg-primary-900/20 rounded-xl sm:rounded-2xl flex items-center justify-center text-primary-700 dark:text-primary-400 font-semibold text-lg sm:text-xl">
                           {testimonial.initials}
