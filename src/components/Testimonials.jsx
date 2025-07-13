@@ -7,14 +7,13 @@ const Testimonials = () => {
   const testimonials = [
     {
       id: 1,
-      name: "Sarah Johnson",
-      initials: "SJ",
+      name: "Sarah Richardson",
+      initials: "SR",
       rating: 5,
       review:
-        "Amazing service! The rental process was super smooth and the car was in perfect condition. EasyDrive made my business trip totally stress-free! 🌟",
-      location: "Business Executive",
-      color: "bg-fun-pink",
-      emoji: "💼",
+        "Exceptional service from start to finish. The vehicle was immaculate and the staff went above and beyond to ensure our comfort. Truly a premium experience.",
+      position: "Executive Director",
+      company: "Fortune 500 Company",
     },
     {
       id: 2,
@@ -22,10 +21,9 @@ const Testimonials = () => {
       initials: "MC",
       rating: 5,
       review:
-        "Best car rental experience ever! WhatsApp rental is so convenient, and the team is super responsive. The car was clean and fuel-efficient! ⭐",
-      location: "Travel Enthusiast",
-      color: "bg-fun-blue",
-      emoji: "✈️",
+        "Outstanding attention to detail and personalized service. The booking process was seamless and the vehicle exceeded our expectations for our special occasion.",
+      position: "Entrepreneur",
+      company: "Tech Startup",
     },
     {
       id: 3,
@@ -33,10 +31,9 @@ const Testimonials = () => {
       initials: "ER",
       rating: 5,
       review:
-        "Professional and reliable service! Rented for a family vacation and everything went perfectly. Great rates and super friendly customer service! 🎉",
-      location: "Family Traveler",
-      color: "bg-fun-green",
-      emoji: "👨‍👩‍👧‍👦",
+        "Professional, reliable, and luxurious. EasyDrive delivered exactly what they promised. The customer service team was incredibly helpful and responsive.",
+      position: "Marketing Director",
+      company: "Global Agency",
     },
     {
       id: 4,
@@ -44,10 +41,9 @@ const Testimonials = () => {
       initials: "DK",
       rating: 5,
       review:
-        "Outstanding experience! Quick response times, transparent pricing, and well-maintained vehicles. Will definitely rent from EasyDrive again! 🚗",
-      location: "Frequent Renter",
-      color: "bg-fun-yellow",
-      emoji: "🔄",
+        "Consistently excellent service with transparent pricing. The quality of vehicles and level of service sets them apart from other rental companies.",
+      position: "Investment Manager",
+      company: "Private Equity",
     },
   ];
 
@@ -71,7 +67,7 @@ const Testimonials = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       nextTestimonial();
-    }, 6000);
+    }, 8000);
 
     return () => clearInterval(interval);
   }, []);
@@ -80,11 +76,11 @@ const Testimonials = () => {
     return Array.from({ length: 5 }, (_, index) => (
       <FiStar
         key={index}
-        size={20}
+        size={16}
         className={`${
           index < rating
-            ? "text-yellow-400 fill-current"
-            : "text-gray-300 dark:text-gray-600"
+            ? "text-accent-warm-brown fill-current"
+            : "text-neutral-warm-grey"
         }`}
       />
     ));
@@ -93,52 +89,47 @@ const Testimonials = () => {
   return (
     <section
       id="testimonials"
-      className="section-padding bg-gradient-to-br from-fun-pink/20 to-fun-yellow/20"
+      className="section-padding bg-neutral-warm-white"
     >
       <div className="container">
-        <div className="text-center mb-16">
-          <div className="text-6xl mb-4">💬⭐🎉</div>
-          <h2 className="text-4xl font-bold mb-4 text-gray-800">
-            What Our Happy Customers Say
+        <div className="text-center mb-20 space-y-6">
+          <h2 className="text-4xl lg:text-5xl font-light text-primary-800">
+            Client
+            <span className="font-semibold"> Testimonials</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Don't just take our word for it! Here's what our awesome customers
-            have to say about their super fun EasyDrive experience! ✨
+          <p className="text-xl text-neutral-medium-grey max-w-3xl mx-auto leading-relaxed">
+            Discover why discerning clients choose EasyDrive for their premium
+            car rental needs. Excellence in service, reflected in every review.
           </p>
         </div>
 
-        <div className="relative max-w-4xl mx-auto">
+        <div className="relative max-w-5xl mx-auto">
           {/* Desktop view - show multiple testimonials */}
           <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {testimonials.slice(0, 3).map((testimonial) => (
-              <div
-                key={testimonial.id}
-                className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-xl p-6 hover:shadow-2xl transition-all duration-300 transform hover:scale-105 border-4 border-white"
-              >
-                <div className="flex items-center mb-6">
-                  <div
-                    className={`w-16 h-16 ${testimonial.color}/80 rounded-full flex items-center justify-center text-gray-800 font-bold text-xl mr-4 shadow-lg border-2 border-white`}
-                  >
+              <div key={testimonial.id} className="card-premium space-y-6">
+                <div className="flex items-center space-x-4">
+                  <div className="w-14 h-14 bg-primary-100 rounded-2xl flex items-center justify-center text-primary-700 font-semibold text-lg">
                     {testimonial.initials}
                   </div>
-                  <div>
-                    <h4 className="font-bold text-lg text-gray-800">
+                  <div className="flex-1">
+                    <h4 className="font-semibold text-lg text-primary-800">
                       {testimonial.name}
                     </h4>
-                    <div className="flex items-center gap-1">
-                      <p className="text-gray-600 text-sm">
-                        {testimonial.location}
-                      </p>
-                      <span className="text-lg">{testimonial.emoji}</span>
-                    </div>
+                    <p className="text-sm text-neutral-medium-grey">
+                      {testimonial.position}
+                    </p>
+                    <p className="text-xs text-neutral-medium-grey">
+                      {testimonial.company}
+                    </p>
                   </div>
                 </div>
 
-                <div className="flex mb-4 justify-center bg-fun-yellow/50 rounded-full py-2">
+                <div className="flex space-x-1">
                   {renderStars(testimonial.rating)}
                 </div>
 
-                <blockquote className="text-gray-700 italic leading-relaxed font-medium bg-gray-50/80 rounded-2xl p-4 border-2 border-fun-blue/20">
+                <blockquote className="text-neutral-charcoal leading-relaxed">
                   "{testimonial.review}"
                 </blockquote>
               </div>
@@ -149,36 +140,37 @@ const Testimonials = () => {
           <div className="md:hidden">
             <div className="overflow-hidden rounded-3xl">
               <div
-                className="flex transition-transform duration-500 ease-in-out"
+                className="flex transition-transform duration-700 ease-in-out"
                 style={{ transform: `translateX(-${currentIndex * 100}%)` }}
               >
                 {testimonials.map((testimonial) => (
-                  <div key={testimonial.id} className="w-full flex-shrink-0">
-                    <div className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-xl p-6 mx-2 border-4 border-white">
-                      <div className="flex items-center mb-6">
-                        <div
-                          className={`w-20 h-20 ${testimonial.color}/80 rounded-full flex items-center justify-center text-gray-800 font-bold text-2xl mr-4 shadow-lg border-2 border-white`}
-                        >
+                  <div
+                    key={testimonial.id}
+                    className="w-full flex-shrink-0 px-4"
+                  >
+                    <div className="card-premium space-y-6">
+                      <div className="flex items-center space-x-4">
+                        <div className="w-16 h-16 bg-primary-100 rounded-2xl flex items-center justify-center text-primary-700 font-semibold text-xl">
                           {testimonial.initials}
                         </div>
-                        <div>
-                          <h4 className="font-bold text-xl text-gray-800">
+                        <div className="flex-1">
+                          <h4 className="font-semibold text-xl text-primary-800">
                             {testimonial.name}
                           </h4>
-                          <div className="flex items-center gap-1">
-                            <p className="text-gray-600">
-                              {testimonial.location}
-                            </p>
-                            <span className="text-xl">{testimonial.emoji}</span>
-                          </div>
+                          <p className="text-neutral-medium-grey">
+                            {testimonial.position}
+                          </p>
+                          <p className="text-sm text-neutral-medium-grey">
+                            {testimonial.company}
+                          </p>
                         </div>
                       </div>
 
-                      <div className="flex mb-6 justify-center bg-fun-yellow/50 rounded-full py-3">
+                      <div className="flex space-x-1 justify-center">
                         {renderStars(testimonial.rating)}
                       </div>
 
-                      <blockquote className="text-gray-700 italic leading-relaxed text-lg font-medium bg-gray-50/80 rounded-2xl p-4 border-2 border-fun-blue/20">
+                      <blockquote className="text-neutral-charcoal leading-relaxed text-lg">
                         "{testimonial.review}"
                       </blockquote>
                     </div>
@@ -188,13 +180,13 @@ const Testimonials = () => {
             </div>
 
             {/* Mobile navigation */}
-            <div className="flex justify-between items-center mt-6">
+            <div className="flex justify-between items-center mt-8">
               <button
                 onClick={prevTestimonial}
-                className="bg-white/90 p-4 rounded-full shadow-xl hover:bg-white transition-colors hover:scale-110 duration-300 border-2 border-fun-blue/20"
+                className="bg-neutral-warm-white p-4 rounded-2xl shadow-gentle hover:shadow-soft transition-all duration-300 border border-neutral-muted-grey/30"
                 aria-label="Previous testimonial"
               >
-                <FiChevronLeft size={24} className="text-gray-700" />
+                <FiChevronLeft size={20} className="text-primary-700" />
               </button>
 
               <div className="flex space-x-3">
@@ -202,10 +194,10 @@ const Testimonials = () => {
                   <button
                     key={index}
                     onClick={() => goToTestimonial(index)}
-                    className={`w-4 h-4 rounded-full transition-all duration-300 transform hover:scale-125 ${
+                    className={`h-2 rounded-full transition-all duration-300 ${
                       index === currentIndex
-                        ? "bg-primary-600 shadow-lg scale-125"
-                        : "bg-gray-300 hover:bg-gray-400"
+                        ? "w-8 bg-primary-600"
+                        : "w-2 bg-neutral-warm-grey hover:bg-primary-400"
                     }`}
                     aria-label={`Go to testimonial ${index + 1}`}
                   />
@@ -214,34 +206,33 @@ const Testimonials = () => {
 
               <button
                 onClick={nextTestimonial}
-                className="bg-white/90 p-4 rounded-full shadow-xl hover:bg-white transition-colors hover:scale-110 duration-300 border-2 border-fun-blue/20"
+                className="bg-neutral-warm-white p-4 rounded-2xl shadow-gentle hover:shadow-soft transition-all duration-300 border border-neutral-muted-grey/30"
                 aria-label="Next testimonial"
               >
-                <FiChevronRight size={24} className="text-gray-700" />
+                <FiChevronRight size={20} className="text-primary-700" />
               </button>
             </div>
           </div>
         </div>
 
-        {/* Fun trust indicators */}
-        <div className="mt-16 text-center">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
-            <div className="flex flex-col items-center bg-fun-green/60 backdrop-blur-sm rounded-3xl p-6 border-4 border-white shadow-lg transform hover:scale-105 transition-transform duration-300">
-              <div className="text-5xl mb-2">🎉</div>
-              <div className="text-4xl font-bold text-gray-800 mb-2">500+</div>
-              <div className="text-gray-700 font-medium">Happy Customers</div>
+        {/* Trust indicators */}
+        <div className="mt-20 grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          <div className="text-center space-y-3">
+            <div className="text-4xl font-light text-primary-700">500+</div>
+            <div className="text-sm text-neutral-medium-grey uppercase tracking-wider">
+              Satisfied Clients
             </div>
-            <div className="flex flex-col items-center bg-fun-yellow/60 backdrop-blur-sm rounded-3xl p-6 border-4 border-white shadow-lg transform hover:scale-105 transition-transform duration-300">
-              <div className="text-5xl mb-2">⭐</div>
-              <div className="text-4xl font-bold text-gray-800 mb-2">4.9★</div>
-              <div className="text-gray-700 font-medium">Average Rating</div>
+          </div>
+          <div className="text-center space-y-3">
+            <div className="text-4xl font-light text-primary-700">4.9</div>
+            <div className="text-sm text-neutral-medium-grey uppercase tracking-wider">
+              Average Rating
             </div>
-            <div className="flex flex-col items-center bg-fun-pink/60 backdrop-blur-sm rounded-3xl p-6 border-4 border-white shadow-lg transform hover:scale-105 transition-transform duration-300">
-              <div className="text-5xl mb-2">🏆</div>
-              <div className="text-4xl font-bold text-gray-800 mb-2">3+</div>
-              <div className="text-gray-700 font-medium">
-                Years of Fun Service
-              </div>
+          </div>
+          <div className="text-center space-y-3">
+            <div className="text-4xl font-light text-primary-700">5</div>
+            <div className="text-sm text-neutral-medium-grey uppercase tracking-wider">
+              Years Excellence
             </div>
           </div>
         </div>
