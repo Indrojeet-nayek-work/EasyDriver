@@ -94,16 +94,16 @@ const Navbar = ({ darkMode, setDarkMode }) => {
 
         {/* Mobile Menu */}
         <div
-          className={`lg:hidden transition-all duration-300 overflow-hidden ${
-            isOpen ? "max-h-96 opacity-100 pb-4" : "max-h-0 opacity-0"
+          className={`lg:hidden transition-all duration-300 overflow-hidden absolute top-full left-0 right-0 z-40 ${
+            isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
           }`}
         >
-          <div className="mt-4 space-y-1 bg-neutral-warm-white dark:bg-neutral-charcoal rounded-2xl shadow-soft border border-neutral-muted-grey/30 dark:border-neutral-medium-grey/30">
+          <div className="mt-2 mx-4 space-y-1 bg-dark-bg dark:bg-dark-bg rounded-2xl shadow-soft border border-dark-card-border dark:border-dark-card-border">
             {menuItems.map((item) => (
               <button
                 key={item.name}
                 onClick={() => handleLinkClick(item.href)}
-                className="block w-full text-left px-4 sm:px-6 py-3 sm:py-4 text-neutral-charcoal dark:text-neutral-beige hover:bg-neutral-beige dark:hover:bg-neutral-medium-grey hover:text-primary-700 dark:hover:text-primary-400 font-medium transition-colors first:rounded-t-2xl last:rounded-b-2xl"
+                className="block w-full text-left px-4 sm:px-6 py-3 sm:py-4 text-dark-primary-text dark:text-dark-primary-text hover:bg-dark-card-border-alt dark:hover:bg-dark-card-border-alt hover:text-dark-accent dark:hover:text-dark-accent font-medium transition-colors first:rounded-t-2xl last:rounded-b-2xl"
               >
                 {item.name}
               </button>
