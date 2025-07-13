@@ -112,7 +112,7 @@ const Testimonials = () => {
                 className="card-premium dark:bg-dark-card-border dark:border-dark-card-border-alt space-y-4 sm:space-y-6"
               >
                 <div className="flex items-center space-x-3 sm:space-x-4">
-                  <div className="w-12 sm:w-14 h-12 sm:h-14 bg-primary-100 dark:bg-primary-900/20 rounded-xl sm:rounded-2xl flex items-center justify-center text-primary-700 dark:text-primary-400 font-semibold text-base sm:text-lg">
+                  <div className="w-12 sm:w-14 h-12 sm:h-14 bg-primary-100 dark:bg-dark-card-border-alt rounded-xl sm:rounded-2xl flex items-center justify-center text-primary-700 dark:text-dark-accent font-semibold text-base sm:text-lg">
                     {testimonial.initials}
                   </div>
                   <div className="flex-1">
