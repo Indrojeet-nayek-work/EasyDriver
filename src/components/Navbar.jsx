@@ -11,7 +11,6 @@ const Navbar = ({ darkMode, setDarkMode }) => {
     { name: "How It Works", href: "#how-it-works", emoji: "⚡" },
     { name: "Contact", href: "#contact", emoji: "📞" },
     { name: "Testimonials", href: "#testimonials", emoji: "⭐" },
-    { name: "Find Us", href: "#find-us", emoji: "📍" },
   ];
 
   useEffect(() => {
