@@ -12,10 +12,10 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center gradient-warm dark:bg-gradient-to-br dark:from-neutral-charcoal dark:to-neutral-deep-brown"
+      className="min-h-screen flex items-center gradient-warm dark:bg-gradient-to-br dark:from-dark-bg dark:to-dark-card-border"
     >
       <div className="container px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center space-y-8 pt-20 sm:pt-16">
+        <div className="max-w-4xl mx-auto text-center space-y-6 sm:space-y-8 pt-8 sm:pt-16">
           {/* Content */}
           <div className="space-y-6">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-light text-primary-800 dark:text-primary-200 leading-tight">
