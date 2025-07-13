@@ -6,7 +6,8 @@ import {
   FiInstagram,
   FiFacebook,
   FiTwitter,
-  FiNavigation,
+  FiClock,
+  FiArrowRight,
 } from "react-icons/fi";
 
 const Contact = () => {
@@ -21,15 +22,14 @@ const Contact = () => {
   const fullAddress = `${address.street}, ${address.city}, ${address.state} ${address.zip}, ${address.country}`;
   const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(fullAddress)}`;
 
-  const contactInfo = [
+  const contactMethods = [
     {
       icon: <FiPhone size={24} />,
       title: "Phone",
       details: "+1 (555) 123-4567",
       action: "tel:+15551234567",
-      description: "Call us for super quick help! 📞",
-      bgColor: "bg-fun-green/80",
-      emoji: "📞",
+      description: "Direct line for immediate assistance",
+      bgColor: "bg-primary-50",
     },
     {
       icon: (
@@ -40,113 +40,99 @@ const Contact = () => {
       title: "WhatsApp",
       details: "+1 (555) 123-4567",
       action:
-        "https://wa.me/15551234567?text=Hi! I want to rent a cool car! 🚗",
-      description: "Quick car rental via WhatsApp! 💬",
-      bgColor: "bg-fun-blue/80",
-      emoji: "💬",
+        "https://wa.me/15551234567?text=Hello, I would like to inquire about premium car rental services.",
+      description: "Instant messaging support",
+      bgColor: "bg-primary-50",
     },
     {
       icon: <FiMail size={24} />,
       title: "Email",
-      details: "hello@easydrive.com",
+      details: "concierge@easydrive.com",
       action:
-        "mailto:hello@easydrive.com?subject=Car Rental Inquiry - Let's Get Rolling! 🚗",
-      description: "Send us your questions! 📧",
-      bgColor: "bg-fun-yellow/80",
-      emoji: "📧",
+        "mailto:concierge@easydrive.com?subject=Premium Car Rental Inquiry",
+      description: "Written inquiries and reservations",
+      bgColor: "bg-primary-50",
     },
   ];
 
   const socialLinks = [
     {
       name: "Instagram",
-      icon: <FiInstagram size={24} />,
+      icon: <FiInstagram size={20} />,
       url: "https://instagram.com/easydrive",
-      color: "hover:text-pink-500",
-      bgColor: "bg-fun-pink/60",
     },
     {
       name: "Facebook",
-      icon: <FiFacebook size={24} />,
+      icon: <FiFacebook size={20} />,
       url: "https://facebook.com/easydrive",
-      color: "hover:text-blue-500",
-      bgColor: "bg-fun-blue/60",
     },
     {
       name: "Twitter",
-      icon: <FiTwitter size={24} />,
+      icon: <FiTwitter size={20} />,
       url: "https://twitter.com/easydrive",
-      color: "hover:text-blue-400",
-      bgColor: "bg-fun-green/60",
     },
   ];
 
   return (
-    <section
-      id="contact"
-      className="section-padding bg-gradient-to-br from-fun-yellow/20 to-fun-green/20"
-    >
+    <section id="contact" className="section-padding bg-neutral-cream">
       <div className="container">
-        <div className="text-center mb-16">
-          <div className="text-6xl mb-4">📞💬✨</div>
-          <h2 className="text-4xl font-bold mb-4 text-gray-800">
-            Contact EasyDrive
+        <div className="text-center mb-20 space-y-6">
+          <h2 className="text-4xl lg:text-5xl font-light text-primary-800">
+            Get In
+            <span className="font-semibold"> Touch</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Ready to rent your awesome ride? Get in touch with us through any of
-            these super convenient ways! 🎉
+          <p className="text-xl text-neutral-medium-grey max-w-3xl mx-auto leading-relaxed">
+            Ready to experience premium car rental? Connect with our dedicated
+            team for personalized service and expert guidance.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* Contact Methods */}
-          <div>
-            <h3 className="text-2xl font-bold mb-8 text-gray-800 flex items-center gap-2">
-              <span className="text-3xl">👋</span>
-              Get In Touch!
+          <div className="space-y-8">
+            <h3 className="text-2xl font-semibold text-primary-800 mb-8">
+              Contact Methods
             </h3>
 
             <div className="space-y-6">
-              {contactInfo.map((contact, index) => (
+              {contactMethods.map((method, index) => (
                 <a
                   key={index}
-                  href={contact.action}
-                  target={
-                    contact.action.startsWith("http") ? "_blank" : "_self"
-                  }
+                  href={method.action}
+                  target={method.action.startsWith("http") ? "_blank" : "_self"}
                   rel={
-                    contact.action.startsWith("http")
+                    method.action.startsWith("http")
                       ? "noopener noreferrer"
                       : ""
                   }
-                  className={`flex items-start p-6 ${contact.bgColor} backdrop-blur-sm rounded-3xl hover:scale-105 transition-all duration-300 group shadow-lg border-2 border-white`}
+                  className="block card-premium hover:scale-[1.02] transition-all duration-300 group"
                 >
-                  <div className="flex-shrink-0 w-16 h-16 bg-white/80 text-gray-700 rounded-2xl flex items-center justify-center group-hover:bg-white transition-colors shadow-lg">
-                    {contact.icon}
-                  </div>
-                  <div className="ml-4">
-                    <div className="flex items-center gap-2 mb-1">
-                      <h4 className="font-bold text-lg text-gray-800">
-                        {contact.title}
-                      </h4>
-                      <span className="text-2xl">{contact.emoji}</span>
+                  <div className="flex items-start space-x-4">
+                    <div
+                      className={`flex-shrink-0 w-14 h-14 ${method.bgColor} rounded-2xl flex items-center justify-center text-primary-700 group-hover:bg-primary-100 transition-colors`}
+                    >
+                      {method.icon}
                     </div>
-                    <p className="text-gray-800 font-bold mb-1">
-                      {contact.details}
-                    </p>
-                    <p className="text-gray-700 text-sm font-medium">
-                      {contact.description}
-                    </p>
+                    <div className="flex-1">
+                      <h4 className="font-semibold text-lg text-primary-800 mb-1">
+                        {method.title}
+                      </h4>
+                      <p className="text-primary-700 font-medium mb-2">
+                        {method.details}
+                      </p>
+                      <p className="text-neutral-medium-grey text-sm">
+                        {method.description}
+                      </p>
+                    </div>
                   </div>
                 </a>
               ))}
             </div>
 
             {/* Social Media */}
-            <div className="mt-8">
-              <h4 className="font-bold text-lg mb-4 text-gray-800 flex items-center gap-2">
-                <span className="text-2xl">🌟</span>
-                Follow Our Adventures!
+            <div className="pt-8 border-t border-neutral-muted-grey/30">
+              <h4 className="font-semibold text-lg text-primary-800 mb-4">
+                Follow Us
               </h4>
               <div className="flex space-x-4">
                 {socialLinks.map((social, index) => (
@@ -155,7 +141,7 @@ const Contact = () => {
                     href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`p-4 ${social.bgColor} backdrop-blur-sm rounded-2xl text-gray-700 ${social.color} transition-all duration-300 hover:scale-110 shadow-lg border-2 border-white`}
+                    className="w-12 h-12 bg-primary-50 hover:bg-primary-100 rounded-2xl flex items-center justify-center text-primary-700 transition-all duration-300 hover:scale-110"
                     aria-label={`Follow us on ${social.name}`}
                   >
                     {social.icon}
@@ -165,89 +151,94 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* Location Details & Quick Rental CTA */}
-          <div>
-            {/* Location Section */}
-            <div className="bg-gradient-to-br from-fun-pink/60 to-fun-blue/60 backdrop-blur-sm rounded-3xl p-8 border-4 border-white shadow-xl mb-8">
-              <div className="flex items-center mb-6">
-                <div className="w-16 h-16 bg-white/80 text-gray-700 rounded-2xl flex items-center justify-center shadow-lg">
-                  <FiMapPin size={24} />
+          {/* Location & Emergency */}
+          <div className="space-y-8">
+            {/* Location */}
+            <div className="card-premium">
+              <div className="flex items-center space-x-3 mb-6">
+                <div className="w-12 h-12 bg-primary-100 rounded-2xl flex items-center justify-center">
+                  <FiMapPin size={20} className="text-primary-700" />
                 </div>
-                <div className="ml-4">
-                  <h3 className="text-2xl font-bold text-gray-800">
-                    Our Location!
-                  </h3>
-                  <span className="text-2xl">📍</span>
+                <h3 className="text-2xl font-semibold text-primary-800">
+                  Location
+                </h3>
+              </div>
+
+              <div className="space-y-4 mb-6">
+                <div className="text-neutral-medium-grey">
+                  <p className="font-medium text-primary-800 mb-2">
+                    Showroom Address
+                  </p>
+                  <p className="leading-relaxed">
+                    {address.street}
+                    <br />
+                    {address.city}, {address.state} {address.zip}
+                    <br />
+                    {address.country}
+                  </p>
                 </div>
               </div>
 
-              {/* Address */}
-              <div className="bg-white/60 rounded-2xl p-6 border-2 border-white mb-6">
-                <h4 className="font-bold text-lg mb-3 text-gray-800 flex items-center gap-2">
-                  <span className="text-2xl">🏢</span>
-                  Street Address
-                </h4>
-                <p className="text-gray-800 leading-relaxed font-medium text-lg">
-                  {address.street}
-                  <br />
-                  {address.city}, {address.state} {address.zip}
-                  <br />
-                  {address.country}
-                </p>
-              </div>
-
-              {/* Google Maps Button */}
               <a
                 href={mapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-fun-green w-full justify-center inline-flex items-center gap-2 text-lg font-bold mb-6"
+                className="btn-outline w-full inline-flex items-center justify-center gap-3"
               >
-                📍 Open in Google Maps!
+                <FiMapPin size={20} />
+                View on Maps
+                <FiArrowRight size={16} />
               </a>
-
-              {/* Emergency Contact */}
-              <div className="bg-white/50 rounded-2xl p-6 border-2 border-white">
-                <div className="flex items-center gap-2 mb-2">
-                  <span className="text-2xl">🚨</span>
-                  <h4 className="font-bold text-gray-800">Emergency Contact</h4>
-                </div>
-                <p className="text-sm text-gray-700 mb-2 font-medium">
-                  24/7 roadside assistance available for our renters! 🆘
-                </p>
-                <a
-                  href="tel:+15551234567"
-                  className="text-primary-600 font-bold hover:underline flex items-center gap-1"
-                >
-                  📞 +1 (555) 123-4567
-                </a>
-              </div>
             </div>
 
-            {/* Quick Rental CTA */}
-            <div className="bg-gradient-to-r from-primary-500 to-primary-600 rounded-3xl p-8 text-white text-center shadow-xl border-4 border-white transform hover:scale-105 transition-transform duration-300">
-              <div className="text-5xl mb-4">🚗💨</div>
-              <h3 className="text-2xl font-bold mb-4">Ready to Rent?</h3>
-              <p className="mb-6 opacity-90 text-lg">
-                Start your awesome adventure with EasyDrive today! Quick, easy,
-                and super reliable car rentals! ✨
+            {/* Emergency Support */}
+            <div className="card-premium">
+              <div className="flex items-center space-x-3 mb-4">
+                <div className="w-12 h-12 bg-accent-warm-brown/10 rounded-2xl flex items-center justify-center">
+                  <FiClock size={20} className="text-accent-warm-brown" />
+                </div>
+                <h3 className="text-xl font-semibold text-primary-800">
+                  24/7 Support
+                </h3>
+              </div>
+
+              <p className="text-neutral-medium-grey mb-4 leading-relaxed">
+                Round-the-clock roadside assistance and customer support for our
+                premium rental clients.
+              </p>
+
+              <a
+                href="tel:+15551234567"
+                className="text-primary-700 font-semibold hover:text-primary-800 transition-colors inline-flex items-center gap-2"
+              >
+                <FiPhone size={16} />
+                Emergency: +1 (555) 123-4567
+              </a>
+            </div>
+
+            {/* Reservation CTA */}
+            <div className="bg-gradient-to-br from-primary-700 to-primary-800 rounded-3xl p-8 text-center text-white shadow-warm">
+              <h3 className="text-2xl font-semibold mb-4">Ready to Reserve?</h3>
+              <p className="text-primary-100 mb-6 leading-relaxed">
+                Experience premium car rental with personalized service and
+                exceptional attention to detail.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
                   href="tel:+15551234567"
-                  className="bg-white text-primary-600 font-bold py-3 px-6 rounded-full hover:bg-gray-100 transition-colors inline-flex items-center justify-center gap-2 shadow-lg"
+                  className="bg-neutral-warm-white text-primary-800 font-semibold py-3 px-6 rounded-xl hover:bg-neutral-beige transition-colors inline-flex items-center justify-center gap-2"
                 >
-                  <FiPhone size={20} />
-                  Call Now! 📞
+                  <FiPhone size={18} />
+                  Call Now
                 </a>
                 <a
-                  href="https://wa.me/15551234567?text=Hi! I want to rent a cool car! 🚗"
+                  href="https://wa.me/15551234567?text=Hello, I would like to inquire about premium car rental services."
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-green-500 hover:bg-green-600 font-bold py-3 px-6 rounded-full transition-colors inline-flex items-center justify-center gap-2 shadow-lg"
+                  className="bg-transparent border-2 border-primary-200 text-primary-100 hover:bg-primary-200 hover:text-primary-800 font-semibold py-3 px-6 rounded-xl transition-all duration-300 inline-flex items-center justify-center gap-2"
                 >
-                  <span className="text-xl">💬</span>
-                  WhatsApp Us!
+                  WhatsApp
+                  <FiArrowRight size={18} />
                 </a>
               </div>
             </div>
