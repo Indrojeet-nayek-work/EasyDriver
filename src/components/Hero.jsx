@@ -1,5 +1,5 @@
 import React from "react";
-import { FiArrowRight, FiPhone } from "react-icons/fi";
+import { FiArrowRight } from "react-icons/fi";
 
 const Hero = () => {
   const handleScrollTo = (elementId) => {
@@ -10,99 +10,71 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center gradient-warm">
-      <div className="container">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+    <section
+      id="home"
+      className="min-h-screen flex items-center gradient-warm dark:bg-gradient-to-br dark:from-neutral-charcoal dark:to-neutral-deep-brown"
+    >
+      <div className="container px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto text-center space-y-8 pt-20 sm:pt-16">
           {/* Content */}
-          <div className="space-y-8">
-            <div className="space-y-6">
-              <h1 className="text-5xl lg:text-6xl xl:text-7xl font-light text-primary-800 leading-tight">
-                Premium Car
-                <span className="block font-semibold text-gradient">
-                  Rental Experience
-                </span>
-              </h1>
+          <div className="space-y-6">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-light text-primary-800 dark:text-primary-200 leading-tight">
+              Affordable Car
+              <span className="block font-semibold text-gradient">
+                Rental Experience
+              </span>
+            </h1>
 
-              <p className="text-xl lg:text-2xl text-neutral-medium-grey leading-relaxed max-w-2xl">
-                Discover exceptional vehicles and personalized service. Your
-                journey begins with our carefully curated fleet.
-              </p>
-            </div>
-
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <button
-                onClick={() => handleScrollTo("#contact")}
-                className="btn-primary inline-flex items-center gap-3 group"
-              >
-                Reserve Now
-                <FiArrowRight
-                  size={20}
-                  className="transition-transform group-hover:translate-x-1"
-                />
-              </button>
-
-              <button
-                onClick={() => handleScrollTo("#fleet")}
-                className="btn-secondary inline-flex items-center gap-3"
-              >
-                View Collection
-              </button>
-            </div>
-
-            {/* Trust indicators */}
-            <div className="pt-12 grid grid-cols-3 gap-8">
-              <div className="text-center">
-                <div className="text-3xl font-semibold text-primary-700 mb-2">
-                  500+
-                </div>
-                <div className="text-sm text-neutral-medium-grey uppercase tracking-wide">
-                  Satisfied Clients
-                </div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-semibold text-primary-700 mb-2">
-                  4.9
-                </div>
-                <div className="text-sm text-neutral-medium-grey uppercase tracking-wide">
-                  Average Rating
-                </div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-semibold text-primary-700 mb-2">
-                  24/7
-                </div>
-                <div className="text-sm text-neutral-medium-grey uppercase tracking-wide">
-                  Support
-                </div>
-              </div>
-            </div>
+            <p className="text-lg sm:text-xl lg:text-2xl text-neutral-medium-grey dark:text-neutral-warm-grey leading-relaxed max-w-3xl mx-auto">
+              Discover quality vehicles and personalized service at competitive
+              rates. Your journey begins with our carefully selected fleet.
+            </p>
           </div>
 
-          {/* Hero Image */}
-          <div className="relative">
-            <div className="relative overflow-hidden rounded-3xl shadow-warm">
-              <img
-                src="https://images.unsplash.com/photo-1549399973-88d6b4d5d34d?w=800&h=600&fit=crop&auto=format&q=80"
-                alt="Premium car rental vehicle"
-                className="w-full h-[600px] object-cover"
+          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+            <button
+              onClick={() => handleScrollTo("#contact")}
+              className="btn-primary inline-flex items-center justify-center gap-3 group"
+            >
+              Book Now
+              <FiArrowRight
+                size={20}
+                className="transition-transform group-hover:translate-x-1"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-            </div>
+            </button>
 
-            {/* Floating feature card */}
-            <div className="absolute -bottom-8 -left-8 bg-neutral-warm-white rounded-2xl shadow-warm p-6 border border-neutral-muted-grey/30">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center">
-                  <FiPhone size={20} className="text-primary-600" />
-                </div>
-                <div>
-                  <div className="font-semibold text-primary-800">
-                    Instant Support
-                  </div>
-                  <div className="text-sm text-neutral-medium-grey">
-                    24/7 assistance
-                  </div>
-                </div>
+            <button
+              onClick={() => handleScrollTo("#fleet")}
+              className="btn-secondary inline-flex items-center justify-center gap-3"
+            >
+              View Collection
+            </button>
+          </div>
+
+          {/* Trust indicators */}
+          <div className="pt-12 grid grid-cols-3 gap-4 sm:gap-8 max-w-2xl mx-auto">
+            <div className="text-center">
+              <div className="text-2xl sm:text-3xl font-semibold text-primary-700 dark:text-primary-400 mb-2">
+                500+
+              </div>
+              <div className="text-xs sm:text-sm text-neutral-medium-grey dark:text-neutral-warm-grey uppercase tracking-wide">
+                Satisfied Clients
+              </div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl sm:text-3xl font-semibold text-primary-700 dark:text-primary-400 mb-2">
+                4.9
+              </div>
+              <div className="text-xs sm:text-sm text-neutral-medium-grey dark:text-neutral-warm-grey uppercase tracking-wide">
+                Average Rating
+              </div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl sm:text-3xl font-semibold text-primary-700 dark:text-primary-400 mb-2">
+                5+
+              </div>
+              <div className="text-xs sm:text-sm text-neutral-medium-grey dark:text-neutral-warm-grey uppercase tracking-wide">
+                Years Experience
               </div>
             </div>
           </div>
