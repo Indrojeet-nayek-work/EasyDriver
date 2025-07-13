@@ -55,7 +55,7 @@ const Navbar = ({ darkMode, setDarkMode }) => {
               <button
                 key={item.name}
                 onClick={() => handleLinkClick(item.href)}
-                className="text-neutral-charcoal dark:text-neutral-beige hover:text-primary-700 dark:hover:text-primary-400 font-medium transition-colors relative group py-2"
+                className="text-neutral-charcoal dark:text-dark-primary-text hover:text-primary-700 dark:hover:text-dark-accent font-medium transition-colors relative group py-2"
               >
                 {item.name}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-600 dark:bg-primary-400 transition-all duration-300 group-hover:w-full"></span>
