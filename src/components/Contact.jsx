@@ -6,7 +6,6 @@ import {
   FiInstagram,
   FiFacebook,
   FiTwitter,
-  FiClock,
   FiArrowRight,
 } from "react-icons/fi";
 
@@ -29,7 +28,7 @@ const Contact = () => {
       details: "+1 (555) 123-4567",
       action: "tel:+15551234567",
       description: "Direct line for immediate assistance",
-      bgColor: "bg-primary-50",
+      bgColor: "bg-primary-50 dark:bg-primary-900/20",
     },
     {
       icon: (
@@ -40,18 +39,17 @@ const Contact = () => {
       title: "WhatsApp",
       details: "+1 (555) 123-4567",
       action:
-        "https://wa.me/15551234567?text=Hello, I would like to inquire about premium car rental services.",
+        "https://wa.me/15551234567?text=Hello, I would like to inquire about affordable car rental services.",
       description: "Instant messaging support",
-      bgColor: "bg-primary-50",
+      bgColor: "bg-primary-50 dark:bg-primary-900/20",
     },
     {
       icon: <FiMail size={24} />,
       title: "Email",
-      details: "concierge@easydrive.com",
-      action:
-        "mailto:concierge@easydrive.com?subject=Premium Car Rental Inquiry",
-      description: "Written inquiries and reservations",
-      bgColor: "bg-primary-50",
+      details: "info@easydrive.com",
+      action: "mailto:info@easydrive.com?subject=Affordable Car Rental Inquiry",
+      description: "Written inquiries and bookings",
+      bgColor: "bg-primary-50 dark:bg-primary-900/20",
     },
   ];
 
@@ -74,27 +72,30 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="section-padding bg-neutral-cream">
-      <div className="container">
-        <div className="text-center mb-20 space-y-6">
-          <h2 className="text-4xl lg:text-5xl font-light text-primary-800">
+    <section
+      id="contact"
+      className="section-padding bg-neutral-cream dark:bg-neutral-charcoal"
+    >
+      <div className="container px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12 sm:mb-20 space-y-4 sm:space-y-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-primary-800 dark:text-primary-200">
             Get In
             <span className="font-semibold"> Touch</span>
           </h2>
-          <p className="text-xl text-neutral-medium-grey max-w-3xl mx-auto leading-relaxed">
-            Ready to experience premium car rental? Connect with our dedicated
-            team for personalized service and expert guidance.
+          <p className="text-lg sm:text-xl text-neutral-medium-grey dark:text-neutral-warm-grey max-w-3xl mx-auto leading-relaxed">
+            Ready to experience affordable car rental? Connect with our team for
+            personalized service and competitive rates.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16">
           {/* Contact Methods */}
-          <div className="space-y-8">
-            <h3 className="text-2xl font-semibold text-primary-800 mb-8">
+          <div className="space-y-6 sm:space-y-8">
+            <h3 className="text-xl sm:text-2xl font-semibold text-primary-800 dark:text-primary-200 mb-6 sm:mb-8">
               Contact Methods
             </h3>
 
-            <div className="space-y-6">
+            <div className="space-y-4 sm:space-y-6">
               {contactMethods.map((method, index) => (
                 <a
                   key={index}
@@ -105,22 +106,22 @@ const Contact = () => {
                       ? "noopener noreferrer"
                       : ""
                   }
-                  className="block card-premium hover:scale-[1.02] transition-all duration-300 group"
+                  className="block card-premium dark:bg-neutral-deep-brown dark:border-neutral-medium-grey/30 hover:scale-[1.02] transition-all duration-300 group"
                 >
-                  <div className="flex items-start space-x-4">
+                  <div className="flex items-start space-x-3 sm:space-x-4">
                     <div
-                      className={`flex-shrink-0 w-14 h-14 ${method.bgColor} rounded-2xl flex items-center justify-center text-primary-700 group-hover:bg-primary-100 transition-colors`}
+                      className={`flex-shrink-0 w-12 sm:w-14 h-12 sm:h-14 ${method.bgColor} rounded-xl sm:rounded-2xl flex items-center justify-center text-primary-700 dark:text-primary-400 group-hover:bg-primary-100 dark:group-hover:bg-primary-800/30 transition-colors`}
                     >
                       {method.icon}
                     </div>
-                    <div className="flex-1">
-                      <h4 className="font-semibold text-lg text-primary-800 mb-1">
+                    <div className="flex-1 min-w-0">
+                      <h4 className="font-semibold text-base sm:text-lg text-primary-800 dark:text-primary-200 mb-1">
                         {method.title}
                       </h4>
-                      <p className="text-primary-700 font-medium mb-2">
+                      <p className="text-primary-700 dark:text-primary-400 font-medium mb-2 break-all">
                         {method.details}
                       </p>
-                      <p className="text-neutral-medium-grey text-sm">
+                      <p className="text-neutral-medium-grey dark:text-neutral-warm-grey text-sm">
                         {method.description}
                       </p>
                     </div>
@@ -130,18 +131,18 @@ const Contact = () => {
             </div>
 
             {/* Social Media */}
-            <div className="pt-8 border-t border-neutral-muted-grey/30">
-              <h4 className="font-semibold text-lg text-primary-800 mb-4">
+            <div className="pt-6 sm:pt-8 border-t border-neutral-muted-grey/30 dark:border-neutral-medium-grey/30">
+              <h4 className="font-semibold text-base sm:text-lg text-primary-800 dark:text-primary-200 mb-4">
                 Follow Us
               </h4>
-              <div className="flex space-x-4">
+              <div className="flex space-x-3 sm:space-x-4">
                 {socialLinks.map((social, index) => (
                   <a
                     key={index}
                     href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-12 h-12 bg-primary-50 hover:bg-primary-100 rounded-2xl flex items-center justify-center text-primary-700 transition-all duration-300 hover:scale-110"
+                    className="w-10 sm:w-12 h-10 sm:h-12 bg-primary-50 dark:bg-primary-900/20 hover:bg-primary-100 dark:hover:bg-primary-800/30 rounded-xl sm:rounded-2xl flex items-center justify-center text-primary-700 dark:text-primary-400 transition-all duration-300 hover:scale-110"
                     aria-label={`Follow us on ${social.name}`}
                   >
                     {social.icon}
@@ -151,25 +152,28 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* Location & Emergency */}
-          <div className="space-y-8">
+          {/* Location & Booking CTA */}
+          <div className="space-y-6 sm:space-y-8">
             {/* Location */}
-            <div className="card-premium">
-              <div className="flex items-center space-x-3 mb-6">
-                <div className="w-12 h-12 bg-primary-100 rounded-2xl flex items-center justify-center">
-                  <FiMapPin size={20} className="text-primary-700" />
+            <div className="card-premium dark:bg-neutral-deep-brown dark:border-neutral-medium-grey/30">
+              <div className="flex items-center space-x-3 mb-4 sm:mb-6">
+                <div className="w-10 sm:w-12 h-10 sm:h-12 bg-primary-100 dark:bg-primary-900/20 rounded-xl sm:rounded-2xl flex items-center justify-center">
+                  <FiMapPin
+                    size={18}
+                    className="text-primary-700 dark:text-primary-400"
+                  />
                 </div>
-                <h3 className="text-2xl font-semibold text-primary-800">
+                <h3 className="text-xl sm:text-2xl font-semibold text-primary-800 dark:text-primary-200">
                   Location
                 </h3>
               </div>
 
-              <div className="space-y-4 mb-6">
-                <div className="text-neutral-medium-grey">
-                  <p className="font-medium text-primary-800 mb-2">
-                    Showroom Address
+              <div className="space-y-4 mb-4 sm:mb-6">
+                <div className="text-neutral-medium-grey dark:text-neutral-warm-grey">
+                  <p className="font-medium text-primary-800 dark:text-primary-200 mb-2">
+                    Office Address
                   </p>
-                  <p className="leading-relaxed">
+                  <p className="leading-relaxed text-sm sm:text-base">
                     {address.street}
                     <br />
                     {address.city}, {address.state} {address.zip}
@@ -183,62 +187,39 @@ const Contact = () => {
                 href={mapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-outline w-full inline-flex items-center justify-center gap-3"
+                className="btn-outline w-full inline-flex items-center justify-center gap-2 sm:gap-3"
               >
-                <FiMapPin size={20} />
+                <FiMapPin size={18} />
                 View on Maps
                 <FiArrowRight size={16} />
               </a>
             </div>
 
-            {/* Emergency Support */}
-            <div className="card-premium">
-              <div className="flex items-center space-x-3 mb-4">
-                <div className="w-12 h-12 bg-accent-warm-brown/10 rounded-2xl flex items-center justify-center">
-                  <FiClock size={20} className="text-accent-warm-brown" />
-                </div>
-                <h3 className="text-xl font-semibold text-primary-800">
-                  24/7 Support
-                </h3>
-              </div>
-
-              <p className="text-neutral-medium-grey mb-4 leading-relaxed">
-                Round-the-clock roadside assistance and customer support for our
-                premium rental clients.
+            {/* Booking CTA */}
+            <div className="bg-gradient-to-br from-primary-700 to-primary-800 dark:from-primary-600 dark:to-primary-700 rounded-2xl sm:rounded-3xl p-6 sm:p-8 text-center text-white shadow-warm">
+              <h3 className="text-xl sm:text-2xl font-semibold mb-3 sm:mb-4">
+                Ready to Book?
+              </h3>
+              <p className="text-primary-100 dark:text-primary-200 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">
+                Experience affordable car rental with personalized service and
+                competitive rates for your journey.
               </p>
-
-              <a
-                href="tel:+15551234567"
-                className="text-primary-700 font-semibold hover:text-primary-800 transition-colors inline-flex items-center gap-2"
-              >
-                <FiPhone size={16} />
-                Emergency: +1 (555) 123-4567
-              </a>
-            </div>
-
-            {/* Reservation CTA */}
-            <div className="bg-gradient-to-br from-primary-700 to-primary-800 rounded-3xl p-8 text-center text-white shadow-warm">
-              <h3 className="text-2xl font-semibold mb-4">Ready to Reserve?</h3>
-              <p className="text-primary-100 mb-6 leading-relaxed">
-                Experience premium car rental with personalized service and
-                exceptional attention to detail.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
                 <a
                   href="tel:+15551234567"
-                  className="bg-neutral-warm-white text-primary-800 font-semibold py-3 px-6 rounded-xl hover:bg-neutral-beige transition-colors inline-flex items-center justify-center gap-2"
+                  className="bg-neutral-warm-white text-primary-800 font-semibold py-2.5 sm:py-3 px-4 sm:px-6 rounded-lg sm:rounded-xl hover:bg-neutral-beige transition-colors inline-flex items-center justify-center gap-2 text-sm sm:text-base"
                 >
-                  <FiPhone size={18} />
+                  <FiPhone size={16} />
                   Call Now
                 </a>
                 <a
-                  href="https://wa.me/15551234567?text=Hello, I would like to inquire about premium car rental services."
+                  href="https://wa.me/15551234567?text=Hello, I would like to inquire about affordable car rental services."
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-transparent border-2 border-primary-200 text-primary-100 hover:bg-primary-200 hover:text-primary-800 font-semibold py-3 px-6 rounded-xl transition-all duration-300 inline-flex items-center justify-center gap-2"
+                  className="bg-transparent border-2 border-primary-200 dark:border-primary-300 text-primary-100 dark:text-primary-200 hover:bg-primary-200 hover:text-primary-800 dark:hover:bg-primary-300 dark:hover:text-primary-800 font-semibold py-2.5 sm:py-3 px-4 sm:px-6 rounded-lg sm:rounded-xl transition-all duration-300 inline-flex items-center justify-center gap-2 text-sm sm:text-base"
                 >
                   WhatsApp
-                  <FiArrowRight size={18} />
+                  <FiArrowRight size={16} />
                 </a>
               </div>
             </div>
