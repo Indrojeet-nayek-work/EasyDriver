@@ -14,6 +14,7 @@ export default {
         accent: {
           500: "#f59e0b",
           600: "#d97706",
+          700: "#b45309",
         },
         fun: {
           green: "#CDE9D6",
