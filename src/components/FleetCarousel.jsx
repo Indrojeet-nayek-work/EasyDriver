@@ -17,6 +17,8 @@ const FleetCarousel = () => {
         "https://images.unsplash.com/photo-1549399973-88d6b4d5d34d?w=600&h=400&fit=crop",
       features: ["Automatic", "GPS Navigation", "Bluetooth"],
       price: "$45/day",
+      fun: "🌟",
+      bgColor: "bg-fun-blue",
     },
     {
       id: 2,
@@ -28,6 +30,8 @@ const FleetCarousel = () => {
         "https://images.unsplash.com/photo-1553440569-bcc63803a83d?w=600&h=400&fit=crop",
       features: ["All-Wheel Drive", "4x4", "Spacious"],
       price: "$65/day",
+      fun: "🚙",
+      bgColor: "bg-fun-green",
     },
     {
       id: 3,
@@ -39,6 +43,8 @@ const FleetCarousel = () => {
         "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=600&h=400&fit=crop",
       features: ["Fuel Efficient", "Manual", "City Friendly"],
       price: "$30/day",
+      fun: "⚡",
+      bgColor: "bg-fun-yellow",
     },
     {
       id: 4,
@@ -50,6 +56,8 @@ const FleetCarousel = () => {
         "https://images.unsplash.com/photo-1555215695-3004980ad54e?w=600&h=400&fit=crop",
       features: ["Luxury Interior", "Premium Sound", "Leather Seats"],
       price: "$95/day",
+      fun: "👑",
+      bgColor: "bg-fun-pink",
     },
     {
       id: 5,
@@ -61,6 +69,8 @@ const FleetCarousel = () => {
         "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=600&h=400&fit=crop",
       features: ["Large Capacity", "Group Travel", "Comfortable"],
       price: "$80/day",
+      fun: "🚐",
+      bgColor: "bg-fun-green",
     },
   ];
 
@@ -115,20 +125,26 @@ const FleetCarousel = () => {
   }, []);
 
   return (
-    <section id="fleet" className="section-padding bg-gray-50 dark:bg-gray-800">
+    <section
+      id="fleet"
+      className="section-padding bg-gradient-to-br from-fun-yellow/30 to-fun-pink/30"
+    >
       <div className="container">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold mb-4">Our Premium Fleet</h2>
-          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Choose from our diverse collection of well-maintained vehicles for
-            every occasion
+          <div className="text-6xl mb-4">🚗✨</div>
+          <h2 className="text-4xl font-bold mb-4 text-gray-800">
+            Our Amazing Car Collection!
+          </h2>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            Pick your perfect ride from our super cool collection of
+            well-maintained vehicles! 🎉
           </p>
         </div>
 
         <div className="relative max-w-4xl mx-auto">
           {/* Main carousel container */}
           <div
-            className="overflow-hidden rounded-xl"
+            className="overflow-hidden rounded-3xl shadow-2xl"
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
@@ -139,7 +155,9 @@ const FleetCarousel = () => {
             >
               {vehicles.map((vehicle) => (
                 <div key={vehicle.id} className="w-full flex-shrink-0">
-                  <div className="bg-white dark:bg-gray-900 rounded-xl shadow-lg overflow-hidden">
+                  <div
+                    className={`${vehicle.bgColor}/20 backdrop-blur-sm rounded-3xl shadow-lg overflow-hidden border-4 border-white`}
+                  >
                     <div className="relative">
                       <img
                         src={vehicle.image}
@@ -147,65 +165,72 @@ const FleetCarousel = () => {
                         className="w-full h-64 sm:h-80 object-cover"
                         loading="lazy"
                       />
+                      <div className="absolute top-4 left-4">
+                        <span className="text-4xl">{vehicle.fun}</span>
+                      </div>
                       <div className="absolute top-4 right-4">
                         <span
-                          className={`px-3 py-1 rounded-full text-sm font-medium ${
+                          className={`px-4 py-2 rounded-full text-sm font-bold shadow-lg ${
                             vehicle.ac
-                              ? "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200"
-                              : "bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200"
+                              ? "bg-fun-blue text-gray-800"
+                              : "bg-fun-yellow text-gray-800"
                           }`}
                         >
-                          {vehicle.ac ? "AC" : "Non-AC"}
+                          {vehicle.ac ? "❄️ AC" : "🌬️ Non-AC"}
                         </span>
                       </div>
                     </div>
 
-                    <div className="p-6">
+                    <div className="p-6 bg-white/80 backdrop-blur-sm">
                       <div className="flex justify-between items-start mb-4">
                         <div>
-                          <h3 className="text-2xl font-bold mb-1">
+                          <h3 className="text-2xl font-bold mb-1 text-gray-800">
                             {vehicle.name}
                           </h3>
-                          <p className="text-gray-600 dark:text-gray-400">
+                          <p className="text-gray-600 font-medium">
                             {vehicle.type}
                           </p>
                         </div>
                         <div className="text-right">
-                          <div className="text-2xl font-bold text-primary-600 dark:text-primary-400">
+                          <div className="text-2xl font-bold text-primary-600 bg-fun-yellow px-3 py-1 rounded-full">
                             {vehicle.price}
                           </div>
                         </div>
                       </div>
 
                       <div className="flex items-center gap-4 mb-4">
-                        <div className="flex items-center gap-1 text-gray-600 dark:text-gray-400">
+                        <div className="flex items-center gap-1 text-gray-600 bg-fun-green/50 px-3 py-1 rounded-full">
                           <FiUsers size={18} />
-                          <span>{vehicle.seats} seats</span>
+                          <span className="font-medium">
+                            {vehicle.seats} seats
+                          </span>
                         </div>
                         {vehicle.ac && (
-                          <div className="flex items-center gap-1 text-blue-600 dark:text-blue-400">
+                          <div className="flex items-center gap-1 text-blue-600 bg-fun-blue/50 px-3 py-1 rounded-full">
                             <FiWind size={18} />
-                            <span>Air Conditioning</span>
+                            <span className="font-medium">Cool AC</span>
                           </div>
                         )}
                       </div>
 
                       <div className="mb-6">
-                        <h4 className="font-semibold mb-2">Features:</h4>
+                        <h4 className="font-bold mb-3 text-gray-800">
+                          Awesome Features:
+                        </h4>
                         <div className="flex flex-wrap gap-2">
                           {vehicle.features.map((feature, index) => (
                             <span
                               key={index}
-                              className="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-sm"
+                              className="px-3 py-1 bg-fun-pink/60 text-gray-800 rounded-full text-sm font-medium shadow-sm"
                             >
-                              {feature}
+                              ✨ {feature}
                             </span>
                           ))}
                         </div>
                       </div>
 
-                      <button className="btn-primary w-full">
-                        Book This Vehicle
+                      <button className="btn-fun-green w-full text-lg font-bold">
+                        🚗 Rent This Beauty!
                       </button>
                     </div>
                   </div>
@@ -214,33 +239,33 @@ const FleetCarousel = () => {
             </div>
           </div>
 
-          {/* Navigation arrows */}
+          {/* Fun navigation arrows */}
           <button
             onClick={prevSlide}
-            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white dark:bg-gray-800 p-3 rounded-full shadow-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors z-10"
+            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/90 p-4 rounded-full shadow-xl hover:bg-white transition-colors z-10 hover:scale-110 duration-300"
             aria-label="Previous vehicle"
           >
-            <FiChevronLeft size={24} />
+            <FiChevronLeft size={28} className="text-gray-700" />
           </button>
 
           <button
             onClick={nextSlide}
-            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white dark:bg-gray-800 p-3 rounded-full shadow-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors z-10"
+            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/90 p-4 rounded-full shadow-xl hover:bg-white transition-colors z-10 hover:scale-110 duration-300"
             aria-label="Next vehicle"
           >
-            <FiChevronRight size={24} />
+            <FiChevronRight size={28} className="text-gray-700" />
           </button>
 
-          {/* Dot indicators */}
-          <div className="flex justify-center mt-6 space-x-2">
+          {/* Fun dot indicators */}
+          <div className="flex justify-center mt-8 space-x-3">
             {vehicles.map((_, index) => (
               <button
                 key={index}
                 onClick={() => goToSlide(index)}
-                className={`w-3 h-3 rounded-full transition-colors ${
+                className={`w-4 h-4 rounded-full transition-all duration-300 transform hover:scale-125 ${
                   index === currentIndex
-                    ? "bg-primary-600 dark:bg-primary-400"
-                    : "bg-gray-300 dark:bg-gray-600 hover:bg-gray-400 dark:hover:bg-gray-500"
+                    ? "bg-primary-600 shadow-lg scale-125"
+                    : "bg-gray-300 hover:bg-gray-400"
                 }`}
                 aria-label={`Go to vehicle ${index + 1}`}
               />
