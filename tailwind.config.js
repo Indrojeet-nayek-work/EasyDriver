@@ -28,6 +28,16 @@ export default {
           charcoal: "#4a453e",
           "deep-brown": "#3c362f",
         },
+        dark: {
+          bg: "#121212",
+          "primary-text": "#EDE4D9",
+          "muted-text": "#B8B3AD",
+          accent: "#B67C55",
+          "card-border": "#2A2A28",
+          "card-border-alt": "#3B3B3B",
+          "hover-highlight": "#D1A17B",
+          "hover-alt": "#A9836A",
+        },
         accent: {
           "warm-brown": "#8b7355",
           "light-brown": "#a68b5b",
