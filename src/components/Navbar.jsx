@@ -33,39 +33,39 @@ const Navbar = ({ darkMode, setDarkMode }) => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-neutral-warm-white/95 backdrop-blur-md shadow-gentle border-b border-neutral-muted-grey/20"
+          ? "bg-neutral-warm-white/95 dark:bg-neutral-charcoal/95 backdrop-blur-md shadow-gentle border-b border-neutral-muted-grey/20 dark:border-neutral-medium-grey/20"
           : "bg-transparent"
       }`}
     >
-      <div className="container">
-        <div className="flex items-center justify-between h-20 lg:h-24">
+      <div className="container px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}
-          <div className="flex items-center">
+          <div className="flex items-center flex-shrink-0">
             <button
               onClick={() => handleLinkClick("#home")}
-              className="text-2xl lg:text-3xl font-semibold text-primary-800 hover:text-primary-700 transition-colors"
+              className="text-xl sm:text-2xl lg:text-3xl font-semibold text-primary-800 dark:text-primary-200 hover:text-primary-700 dark:hover:text-primary-300 transition-colors"
             >
               EasyDrive
             </button>
           </div>
 
           {/* Desktop Menu */}
-          <div className="hidden lg:flex items-center space-x-8">
+          <div className="hidden lg:flex items-center space-x-6 xl:space-x-8">
             {menuItems.map((item) => (
               <button
                 key={item.name}
                 onClick={() => handleLinkClick(item.href)}
-                className="text-neutral-charcoal hover:text-primary-700 font-medium transition-colors relative group py-2"
+                className="text-neutral-charcoal dark:text-neutral-beige hover:text-primary-700 dark:hover:text-primary-400 font-medium transition-colors relative group py-2"
               >
                 {item.name}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-600 transition-all duration-300 group-hover:w-full"></span>
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-600 dark:bg-primary-400 transition-all duration-300 group-hover:w-full"></span>
               </button>
             ))}
 
             {/* Dark Mode Toggle */}
             <button
               onClick={() => setDarkMode(!darkMode)}
-              className="p-3 rounded-xl bg-neutral-soft-grey hover:bg-neutral-muted-grey text-neutral-charcoal transition-all duration-300"
+              className="p-3 rounded-xl bg-neutral-soft-grey dark:bg-neutral-medium-grey hover:bg-neutral-muted-grey dark:hover:bg-neutral-warm-grey text-neutral-charcoal dark:text-neutral-beige transition-all duration-300"
               aria-label="Toggle dark mode"
             >
               {darkMode ? <FiSun size={18} /> : <FiMoon size={18} />}
@@ -73,21 +73,21 @@ const Navbar = ({ darkMode, setDarkMode }) => {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="lg:hidden flex items-center space-x-4">
+          <div className="lg:hidden flex items-center space-x-2 sm:space-x-3">
             <button
               onClick={() => setDarkMode(!darkMode)}
-              className="p-2 rounded-xl bg-neutral-soft-grey hover:bg-neutral-muted-grey text-neutral-charcoal transition-colors"
+              className="p-2 sm:p-2.5 rounded-lg bg-neutral-soft-grey dark:bg-neutral-medium-grey hover:bg-neutral-muted-grey dark:hover:bg-neutral-warm-grey text-neutral-charcoal dark:text-neutral-beige transition-colors"
               aria-label="Toggle dark mode"
             >
-              {darkMode ? <FiSun size={18} /> : <FiMoon size={18} />}
+              {darkMode ? <FiSun size={16} /> : <FiMoon size={16} />}
             </button>
 
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="p-3 rounded-xl bg-neutral-soft-grey hover:bg-neutral-muted-grey text-neutral-charcoal transition-colors"
+              className="p-2.5 sm:p-3 rounded-lg bg-neutral-soft-grey dark:bg-neutral-medium-grey hover:bg-neutral-muted-grey dark:hover:bg-neutral-warm-grey text-neutral-charcoal dark:text-neutral-beige transition-colors"
               aria-label="Toggle menu"
             >
-              {isOpen ? <FiX size={20} /> : <FiMenu size={20} />}
+              {isOpen ? <FiX size={18} /> : <FiMenu size={18} />}
             </button>
           </div>
         </div>
@@ -95,15 +95,15 @@ const Navbar = ({ darkMode, setDarkMode }) => {
         {/* Mobile Menu */}
         <div
           className={`lg:hidden transition-all duration-300 overflow-hidden ${
-            isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+            isOpen ? "max-h-96 opacity-100 pb-4" : "max-h-0 opacity-0"
           }`}
         >
-          <div className="py-6 space-y-1 bg-neutral-warm-white rounded-2xl shadow-soft mt-4 border border-neutral-muted-grey/30">
+          <div className="mt-4 space-y-1 bg-neutral-warm-white dark:bg-neutral-charcoal rounded-2xl shadow-soft border border-neutral-muted-grey/30 dark:border-neutral-medium-grey/30">
             {menuItems.map((item) => (
               <button
                 key={item.name}
                 onClick={() => handleLinkClick(item.href)}
-                className="block w-full text-left px-6 py-4 text-neutral-charcoal hover:bg-neutral-beige hover:text-primary-700 font-medium transition-colors"
+                className="block w-full text-left px-4 sm:px-6 py-3 sm:py-4 text-neutral-charcoal dark:text-neutral-beige hover:bg-neutral-beige dark:hover:bg-neutral-medium-grey hover:text-primary-700 dark:hover:text-primary-400 font-medium transition-colors first:rounded-t-2xl last:rounded-b-2xl"
               >
                 {item.name}
               </button>
