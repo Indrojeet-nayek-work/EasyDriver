@@ -18,14 +18,14 @@ const Hero = () => {
         <div className="max-w-4xl mx-auto text-center space-y-6 sm:space-y-8 pt-8 sm:pt-16">
           {/* Content */}
           <div className="space-y-6">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-light text-primary-800 dark:text-primary-200 leading-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-light text-primary-800 dark:text-dark-primary-text leading-tight">
               Affordable Car
-              <span className="block font-semibold text-gradient">
+              <span className="block font-semibold text-gradient dark:text-dark-accent">
                 Rental Experience
               </span>
             </h1>
 
-            <p className="text-lg sm:text-xl lg:text-2xl text-neutral-medium-grey dark:text-neutral-warm-grey leading-relaxed max-w-3xl mx-auto">
+            <p className="text-lg sm:text-xl lg:text-2xl text-neutral-medium-grey dark:text-dark-muted-text leading-relaxed max-w-3xl mx-auto">
               Discover quality vehicles and personalized service at competitive
               rates. Your journey begins with our carefully selected fleet.
             </p>
