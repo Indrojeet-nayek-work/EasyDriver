@@ -60,16 +60,9 @@ const HowItWorks = () => {
               )}
 
               <div className="relative z-10 text-center space-y-4 sm:space-y-6">
-                {/* Step number */}
-                <div className="inline-flex items-center justify-center w-14 sm:w-16 h-14 sm:h-16 bg-neutral-beige dark:bg-neutral-medium-grey/30 rounded-xl sm:rounded-2xl border border-neutral-muted-grey/30 dark:border-neutral-medium-grey/30 mb-4 sm:mb-6">
-                  <span className="text-xl sm:text-2xl font-semibold text-primary-800 dark:text-primary-200">
-                    {step.id}
-                  </span>
-                </div>
-
-                {/* Icon container */}
+                {/* Icon container - Only logo, no numbers */}
                 <div
-                  className={`inline-flex items-center justify-center w-16 sm:w-20 h-16 sm:h-20 ${step.color} rounded-xl sm:rounded-2xl mb-4 sm:mb-6 ${step.textColor} shadow-gentle`}
+                  className={`inline-flex items-center justify-center w-20 sm:w-24 h-20 sm:h-24 ${step.color} rounded-xl sm:rounded-2xl mb-4 sm:mb-6 ${step.textColor} shadow-gentle`}
                 >
                   {step.icon}
                 </div>
