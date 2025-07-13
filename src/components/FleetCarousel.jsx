@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { FiChevronLeft, FiChevronRight, FiUsers, FiWind } from "react-icons/fi";
+import {
+  FiChevronLeft,
+  FiChevronRight,
+  FiUsers,
+  FiWind,
+  FiSettings,
+} from "react-icons/fi";
 
 const FleetCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -9,68 +15,55 @@ const FleetCarousel = () => {
   const vehicles = [
     {
       id: 1,
-      name: "Toyota Camry",
-      type: "Sedan",
+      name: "Mercedes-Benz E-Class",
+      type: "Executive Sedan",
       seats: 5,
       ac: true,
       image:
-        "https://images.unsplash.com/photo-1549399973-88d6b4d5d34d?w=600&h=400&fit=crop",
-      features: ["Automatic", "GPS Navigation", "Bluetooth"],
-      price: "$45/day",
-      fun: "🌟",
-      bgColor: "bg-fun-blue",
+        "https://images.unsplash.com/photo-1549399973-88d6b4d5d34d?w=600&h=400&fit=crop&auto=format&q=80",
+      features: [
+        "Automatic Transmission",
+        "Premium Navigation",
+        "Bluetooth Audio",
+      ],
+      price: "From $85/day",
+      transmission: "Automatic",
     },
     {
       id: 2,
-      name: "Honda CR-V",
-      type: "SUV",
-      seats: 7,
-      ac: true,
-      image:
-        "https://images.unsplash.com/photo-1553440569-bcc63803a83d?w=600&h=400&fit=crop",
-      features: ["All-Wheel Drive", "4x4", "Spacious"],
-      price: "$65/day",
-      fun: "🚙",
-      bgColor: "bg-fun-green",
-    },
-    {
-      id: 3,
-      name: "Ford Focus",
-      type: "Compact",
-      seats: 4,
-      ac: false,
-      image:
-        "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=600&h=400&fit=crop",
-      features: ["Fuel Efficient", "Manual", "City Friendly"],
-      price: "$30/day",
-      fun: "⚡",
-      bgColor: "bg-fun-yellow",
-    },
-    {
-      id: 4,
       name: "BMW X5",
       type: "Luxury SUV",
       seats: 7,
       ac: true,
       image:
-        "https://images.unsplash.com/photo-1555215695-3004980ad54e?w=600&h=400&fit=crop",
-      features: ["Luxury Interior", "Premium Sound", "Leather Seats"],
-      price: "$95/day",
-      fun: "👑",
-      bgColor: "bg-fun-pink",
+        "https://images.unsplash.com/photo-1555215695-3004980ad54e?w=600&h=400&fit=crop&auto=format&q=80",
+      features: ["All-Wheel Drive", "Premium Interior", "Advanced Safety"],
+      price: "From $120/day",
+      transmission: "Automatic",
     },
     {
-      id: 5,
-      name: "Toyota Hiace",
-      type: "Van",
-      seats: 12,
+      id: 3,
+      name: "Audi A4",
+      type: "Premium Sedan",
+      seats: 5,
       ac: true,
       image:
-        "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=600&h=400&fit=crop",
-      features: ["Large Capacity", "Group Travel", "Comfortable"],
-      price: "$80/day",
-      fun: "🚐",
-      bgColor: "bg-fun-green",
+        "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=600&h=400&fit=crop&auto=format&q=80",
+      features: ["Quattro AWD", "Virtual Cockpit", "Premium Sound"],
+      price: "From $75/day",
+      transmission: "Automatic",
+    },
+    {
+      id: 4,
+      name: "Range Rover Sport",
+      type: "Luxury SUV",
+      seats: 7,
+      ac: true,
+      image:
+        "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=600&h=400&fit=crop&auto=format&q=80",
+      features: ["Terrain Response", "Luxury Seating", "Premium Audio"],
+      price: "From $150/day",
+      transmission: "Automatic",
     },
   ];
 
@@ -119,118 +112,108 @@ const FleetCarousel = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       nextSlide();
-    }, 5000);
+    }, 6000);
 
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <section
-      id="fleet"
-      className="section-padding bg-gradient-to-br from-fun-yellow/30 to-fun-pink/30"
-    >
+    <section id="fleet" className="section-padding bg-neutral-cream">
       <div className="container">
-        <div className="text-center mb-12">
-          <div className="text-6xl mb-4">🚗✨</div>
-          <h2 className="text-4xl font-bold mb-4 text-gray-800">
-            Our Amazing Car Collection!
+        <div className="text-center mb-16 space-y-6">
+          <h2 className="text-4xl lg:text-5xl font-light text-primary-800">
+            Premium
+            <span className="font-semibold"> Collection</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Pick your perfect ride from our super cool collection of
-            well-maintained vehicles! 🎉
+          <p className="text-xl text-neutral-medium-grey max-w-3xl mx-auto leading-relaxed">
+            Discover our carefully curated selection of premium vehicles, each
+            maintained to the highest standards for your comfort and safety.
           </p>
         </div>
 
-        <div className="relative max-w-4xl mx-auto">
+        <div className="relative max-w-5xl mx-auto">
           {/* Main carousel container */}
           <div
-            className="overflow-hidden rounded-3xl shadow-2xl"
+            className="overflow-hidden rounded-3xl"
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
           >
             <div
-              className="flex transition-transform duration-500 ease-in-out"
+              className="flex transition-transform duration-700 ease-in-out"
               style={{ transform: `translateX(-${currentIndex * 100}%)` }}
             >
               {vehicles.map((vehicle) => (
                 <div key={vehicle.id} className="w-full flex-shrink-0">
-                  <div
-                    className={`${vehicle.bgColor}/20 backdrop-blur-sm rounded-3xl shadow-lg overflow-hidden border-4 border-white`}
-                  >
-                    <div className="relative">
+                  <div className="card-premium">
+                    <div className="relative mb-8">
                       <img
                         src={vehicle.image}
-                        alt={`${vehicle.name} - ${vehicle.type} car rental`}
-                        className="w-full h-64 sm:h-80 object-cover"
+                        alt={`${vehicle.name} - ${vehicle.type} rental`}
+                        className="w-full h-80 lg:h-96 object-cover rounded-2xl"
                         loading="lazy"
                       />
-                      <div className="absolute top-4 left-4">
-                        <span className="text-4xl">{vehicle.fun}</span>
-                      </div>
-                      <div className="absolute top-4 right-4">
-                        <span
-                          className={`px-4 py-2 rounded-full text-sm font-bold shadow-lg ${
-                            vehicle.ac
-                              ? "bg-fun-blue text-gray-800"
-                              : "bg-fun-yellow text-gray-800"
-                          }`}
-                        >
-                          {vehicle.ac ? "❄️ AC" : "🌬️ Non-AC"}
+                      <div className="absolute top-6 right-6">
+                        <span className="px-4 py-2 bg-neutral-warm-white/95 backdrop-blur-sm rounded-xl text-sm font-medium text-primary-700 border border-neutral-muted-grey/30">
+                          Climate Control
                         </span>
                       </div>
                     </div>
 
-                    <div className="p-6 bg-white/80 backdrop-blur-sm">
-                      <div className="flex justify-between items-start mb-4">
-                        <div>
-                          <h3 className="text-2xl font-bold mb-1 text-gray-800">
+                    <div className="space-y-6">
+                      <div className="flex justify-between items-start">
+                        <div className="space-y-2">
+                          <h3 className="text-2xl lg:text-3xl font-semibold text-primary-800">
                             {vehicle.name}
                           </h3>
-                          <p className="text-gray-600 font-medium">
+                          <p className="text-lg text-neutral-medium-grey">
                             {vehicle.type}
                           </p>
                         </div>
                         <div className="text-right">
-                          <div className="text-2xl font-bold text-primary-600 bg-fun-yellow px-3 py-1 rounded-full">
+                          <div className="text-2xl font-semibold text-primary-700">
                             {vehicle.price}
                           </div>
                         </div>
                       </div>
 
-                      <div className="flex items-center gap-4 mb-4">
-                        <div className="flex items-center gap-1 text-gray-600 bg-fun-green/50 px-3 py-1 rounded-full">
+                      <div className="flex items-center gap-6">
+                        <div className="flex items-center gap-2 text-neutral-medium-grey">
                           <FiUsers size={18} />
-                          <span className="font-medium">
-                            {vehicle.seats} seats
+                          <span className="text-sm">
+                            {vehicle.seats} passengers
                           </span>
                         </div>
-                        {vehicle.ac && (
-                          <div className="flex items-center gap-1 text-blue-600 bg-fun-blue/50 px-3 py-1 rounded-full">
-                            <FiWind size={18} />
-                            <span className="font-medium">Cool AC</span>
-                          </div>
-                        )}
+                        <div className="flex items-center gap-2 text-neutral-medium-grey">
+                          <FiSettings size={18} />
+                          <span className="text-sm">
+                            {vehicle.transmission}
+                          </span>
+                        </div>
+                        <div className="flex items-center gap-2 text-neutral-medium-grey">
+                          <FiWind size={18} />
+                          <span className="text-sm">Climate Control</span>
+                        </div>
                       </div>
 
-                      <div className="mb-6">
-                        <h4 className="font-bold mb-3 text-gray-800">
-                          Awesome Features:
+                      <div className="space-y-3">
+                        <h4 className="font-semibold text-primary-800">
+                          Premium Features
                         </h4>
-                        <div className="flex flex-wrap gap-2">
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                           {vehicle.features.map((feature, index) => (
-                            <span
+                            <div
                               key={index}
-                              className="px-3 py-1 bg-fun-pink/60 text-gray-800 rounded-full text-sm font-medium shadow-sm"
+                              className="px-4 py-2 bg-neutral-beige rounded-xl text-sm text-neutral-charcoal border border-neutral-muted-grey/30"
                             >
-                              ✨ {feature}
-                            </span>
+                              {feature}
+                            </div>
                           ))}
                         </div>
                       </div>
 
-                      <button className="btn-fun-green w-full text-lg font-bold">
-                        🚗 Rent This Beauty!
+                      <button className="btn-primary w-full">
+                        Reserve Vehicle
                       </button>
                     </div>
                   </div>
@@ -239,33 +222,33 @@ const FleetCarousel = () => {
             </div>
           </div>
 
-          {/* Fun navigation arrows */}
+          {/* Navigation arrows */}
           <button
             onClick={prevSlide}
-            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/90 p-4 rounded-full shadow-xl hover:bg-white transition-colors z-10 hover:scale-110 duration-300"
+            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-neutral-warm-white/95 backdrop-blur-sm p-4 rounded-2xl shadow-gentle hover:shadow-soft transition-all duration-300 border border-neutral-muted-grey/30 z-10"
             aria-label="Previous vehicle"
           >
-            <FiChevronLeft size={28} className="text-gray-700" />
+            <FiChevronLeft size={24} className="text-primary-700" />
           </button>
 
           <button
             onClick={nextSlide}
-            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/90 p-4 rounded-full shadow-xl hover:bg-white transition-colors z-10 hover:scale-110 duration-300"
+            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-neutral-warm-white/95 backdrop-blur-sm p-4 rounded-2xl shadow-gentle hover:shadow-soft transition-all duration-300 border border-neutral-muted-grey/30 z-10"
             aria-label="Next vehicle"
           >
-            <FiChevronRight size={28} className="text-gray-700" />
+            <FiChevronRight size={24} className="text-primary-700" />
           </button>
 
-          {/* Fun dot indicators */}
-          <div className="flex justify-center mt-8 space-x-3">
+          {/* Elegant dot indicators */}
+          <div className="flex justify-center mt-12 space-x-3">
             {vehicles.map((_, index) => (
               <button
                 key={index}
                 onClick={() => goToSlide(index)}
-                className={`w-4 h-4 rounded-full transition-all duration-300 transform hover:scale-125 ${
+                className={`h-2 rounded-full transition-all duration-300 ${
                   index === currentIndex
-                    ? "bg-primary-600 shadow-lg scale-125"
-                    : "bg-gray-300 hover:bg-gray-400"
+                    ? "w-8 bg-primary-600"
+                    : "w-2 bg-neutral-warm-grey hover:bg-primary-400"
                 }`}
                 aria-label={`Go to vehicle ${index + 1}`}
               />
