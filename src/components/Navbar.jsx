@@ -65,7 +65,7 @@ const Navbar = ({ darkMode, setDarkMode }) => {
             {/* Dark Mode Toggle */}
             <button
               onClick={() => setDarkMode(!darkMode)}
-              className="p-3 rounded-xl bg-neutral-soft-grey dark:bg-neutral-medium-grey hover:bg-neutral-muted-grey dark:hover:bg-neutral-warm-grey text-neutral-charcoal dark:text-neutral-beige transition-all duration-300"
+              className="p-3 rounded-xl bg-neutral-soft-grey dark:bg-dark-card-border hover:bg-neutral-muted-grey dark:hover:bg-dark-card-border-alt text-neutral-charcoal dark:text-dark-primary-text transition-all duration-300"
               aria-label="Toggle dark mode"
             >
               {darkMode ? <FiSun size={18} /> : <FiMoon size={18} />}
