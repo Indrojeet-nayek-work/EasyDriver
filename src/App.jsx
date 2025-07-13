@@ -5,7 +5,7 @@ import FleetCarousel from "./components/FleetCarousel";
 import HowItWorks from "./components/HowItWorks";
 import Testimonials from "./components/Testimonials";
 import Contact from "./components/Contact";
-import FindUs from "./components/FindUs";
+
 import SEOWrapper from "./components/SEOWrapper";
 
 function App() {
