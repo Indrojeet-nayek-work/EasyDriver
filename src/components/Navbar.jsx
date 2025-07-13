@@ -33,7 +33,7 @@ const Navbar = ({ darkMode, setDarkMode }) => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-neutral-warm-white/95 dark:bg-neutral-charcoal/95 backdrop-blur-md shadow-gentle border-b border-neutral-muted-grey/20 dark:border-neutral-medium-grey/20"
+          ? "bg-neutral-warm-white/95 dark:bg-dark-bg/95 backdrop-blur-md shadow-gentle border-b border-neutral-muted-grey/20 dark:border-dark-card-border"
           : "bg-transparent"
       }`}
     >
