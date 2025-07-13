@@ -43,7 +43,7 @@ const Navbar = ({ darkMode, setDarkMode }) => {
           <div className="flex items-center flex-shrink-0">
             <button
               onClick={() => handleLinkClick("#home")}
-              className="text-xl sm:text-2xl lg:text-3xl font-semibold text-primary-800 dark:text-primary-200 hover:text-primary-700 dark:hover:text-primary-300 transition-colors"
+              className="text-xl sm:text-2xl lg:text-3xl font-semibold text-primary-800 dark:text-dark-primary-text hover:text-primary-700 dark:hover:text-dark-accent transition-colors"
             >
               EasyDrive
             </button>
