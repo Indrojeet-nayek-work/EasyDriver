@@ -36,8 +36,8 @@ function App() {
             <Hero />
             <FleetCarousel />
             <HowItWorks />
-            <Testimonials />
             <Contact />
+            <Testimonials />
             <FindUs />
           </main>
         </div>
