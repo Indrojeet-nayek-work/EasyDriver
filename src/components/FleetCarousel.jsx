@@ -267,10 +267,10 @@ const FleetCarousel = () => {
             </div>
           </div>
 
-          {/* Navigation arrows - Transparent on mobile */}
+          {/* Navigation arrows - Positioned outside the carousel */}
           <button
             onClick={prevSlide}
-            className="absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 bg-black/20 sm:bg-neutral-warm-white/95 dark:bg-dark-card-border/95 backdrop-blur-sm p-3 sm:p-4 rounded-xl sm:rounded-2xl shadow-gentle hover:shadow-soft transition-all duration-300 border border-transparent sm:border-neutral-muted-grey/30 dark:border-dark-card-border-alt z-10"
+            className="absolute -left-4 sm:-left-16 top-1/2 transform -translate-y-1/2 bg-black/30 sm:bg-neutral-warm-white/95 dark:bg-dark-card-border/95 backdrop-blur-sm p-3 sm:p-4 rounded-xl sm:rounded-2xl shadow-gentle hover:shadow-soft transition-all duration-300 border border-transparent sm:border-neutral-muted-grey/30 dark:border-dark-card-border-alt z-10"
             aria-label="Previous vehicle"
           >
             <FiChevronLeft
@@ -281,7 +281,7 @@ const FleetCarousel = () => {
 
           <button
             onClick={nextSlide}
-            className="absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 bg-black/20 sm:bg-neutral-warm-white/95 dark:bg-dark-card-border/95 backdrop-blur-sm p-3 sm:p-4 rounded-xl sm:rounded-2xl shadow-gentle hover:shadow-soft transition-all duration-300 border border-transparent sm:border-neutral-muted-grey/30 dark:border-dark-card-border-alt z-10"
+            className="absolute -right-4 sm:-right-16 top-1/2 transform -translate-y-1/2 bg-black/30 sm:bg-neutral-warm-white/95 dark:bg-dark-card-border/95 backdrop-blur-sm p-3 sm:p-4 rounded-xl sm:rounded-2xl shadow-gentle hover:shadow-soft transition-all duration-300 border border-transparent sm:border-neutral-muted-grey/30 dark:border-dark-card-border-alt z-10"
             aria-label="Next vehicle"
           >
             <FiChevronRight
