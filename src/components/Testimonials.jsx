@@ -11,9 +11,9 @@ const Testimonials = () => {
       initials: "SR",
       rating: 5,
       review:
-        "Exceptional service from start to finish. The vehicle was immaculate and the staff went above and beyond to ensure our comfort. Truly a premium experience.",
+        "Excellent service from start to finish. The vehicle was clean and the staff went above and beyond to ensure our comfort. Truly a great experience.",
       position: "Executive Director",
-      company: "Fortune 500 Company",
+      company: "Tech Company",
     },
     {
       id: 2,
@@ -21,9 +21,9 @@ const Testimonials = () => {
       initials: "MC",
       rating: 5,
       review:
-        "Outstanding attention to detail and personalized service. The booking process was seamless and the vehicle exceeded our expectations for our special occasion.",
+        "Outstanding attention to detail and personalized service. The booking process was seamless and the vehicle exceeded our expectations for our trip.",
       position: "Entrepreneur",
-      company: "Tech Startup",
+      company: "Startup",
     },
     {
       id: 3,
@@ -31,9 +31,9 @@ const Testimonials = () => {
       initials: "ER",
       rating: 5,
       review:
-        "Professional, reliable, and luxurious. EasyDrive delivered exactly what they promised. The customer service team was incredibly helpful and responsive.",
+        "Professional, reliable, and affordable. EasyDrive delivered exactly what they promised. The customer service team was incredibly helpful and responsive.",
       position: "Marketing Director",
-      company: "Global Agency",
+      company: "Digital Agency",
     },
     {
       id: 4,
@@ -42,8 +42,8 @@ const Testimonials = () => {
       rating: 5,
       review:
         "Consistently excellent service with transparent pricing. The quality of vehicles and level of service sets them apart from other rental companies.",
-      position: "Investment Manager",
-      company: "Private Equity",
+      position: "Manager",
+      company: "Local Business",
     },
   ];
 
@@ -80,7 +80,7 @@ const Testimonials = () => {
         className={`${
           index < rating
             ? "text-accent-warm-brown fill-current"
-            : "text-neutral-warm-grey"
+            : "text-neutral-warm-grey dark:text-neutral-medium-grey"
         }`}
       />
     ));
@@ -89,37 +89,40 @@ const Testimonials = () => {
   return (
     <section
       id="testimonials"
-      className="section-padding bg-neutral-warm-white"
+      className="section-padding bg-neutral-warm-white dark:bg-neutral-charcoal"
     >
-      <div className="container">
-        <div className="text-center mb-20 space-y-6">
-          <h2 className="text-4xl lg:text-5xl font-light text-primary-800">
+      <div className="container px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12 sm:mb-20 space-y-4 sm:space-y-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-primary-800 dark:text-primary-200">
             Client
-            <span className="font-semibold"> Testimonials</span>
+            <span className="font-semibold"> Reviews</span>
           </h2>
-          <p className="text-xl text-neutral-medium-grey max-w-3xl mx-auto leading-relaxed">
-            Discover why discerning clients choose EasyDrive for their premium
-            car rental needs. Excellence in service, reflected in every review.
+          <p className="text-lg sm:text-xl text-neutral-medium-grey dark:text-neutral-warm-grey max-w-3xl mx-auto leading-relaxed">
+            Discover why customers choose EasyDrive for their car rental needs.
+            Quality service, reflected in every review.
           </p>
         </div>
 
         <div className="relative max-w-5xl mx-auto">
           {/* Desktop view - show multiple testimonials */}
-          <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {testimonials.slice(0, 3).map((testimonial) => (
-              <div key={testimonial.id} className="card-premium space-y-6">
-                <div className="flex items-center space-x-4">
-                  <div className="w-14 h-14 bg-primary-100 rounded-2xl flex items-center justify-center text-primary-700 font-semibold text-lg">
+              <div
+                key={testimonial.id}
+                className="card-premium dark:bg-neutral-deep-brown dark:border-neutral-medium-grey/30 space-y-4 sm:space-y-6"
+              >
+                <div className="flex items-center space-x-3 sm:space-x-4">
+                  <div className="w-12 sm:w-14 h-12 sm:h-14 bg-primary-100 dark:bg-primary-900/20 rounded-xl sm:rounded-2xl flex items-center justify-center text-primary-700 dark:text-primary-400 font-semibold text-base sm:text-lg">
                     {testimonial.initials}
                   </div>
                   <div className="flex-1">
-                    <h4 className="font-semibold text-lg text-primary-800">
+                    <h4 className="font-semibold text-base sm:text-lg text-primary-800 dark:text-primary-200">
                       {testimonial.name}
                     </h4>
-                    <p className="text-sm text-neutral-medium-grey">
+                    <p className="text-xs sm:text-sm text-neutral-medium-grey dark:text-neutral-warm-grey">
                       {testimonial.position}
                     </p>
-                    <p className="text-xs text-neutral-medium-grey">
+                    <p className="text-xs text-neutral-medium-grey dark:text-neutral-warm-grey">
                       {testimonial.company}
                     </p>
                   </div>
@@ -129,7 +132,7 @@ const Testimonials = () => {
                   {renderStars(testimonial.rating)}
                 </div>
 
-                <blockquote className="text-neutral-charcoal leading-relaxed">
+                <blockquote className="text-neutral-charcoal dark:text-neutral-beige leading-relaxed text-sm sm:text-base">
                   "{testimonial.review}"
                 </blockquote>
               </div>
@@ -138,7 +141,7 @@ const Testimonials = () => {
 
           {/* Mobile carousel view */}
           <div className="md:hidden">
-            <div className="overflow-hidden rounded-3xl">
+            <div className="overflow-hidden rounded-2xl sm:rounded-3xl">
               <div
                 className="flex transition-transform duration-700 ease-in-out"
                 style={{ transform: `translateX(-${currentIndex * 100}%)` }}
@@ -146,21 +149,21 @@ const Testimonials = () => {
                 {testimonials.map((testimonial) => (
                   <div
                     key={testimonial.id}
-                    className="w-full flex-shrink-0 px-4"
+                    className="w-full flex-shrink-0 px-2"
                   >
-                    <div className="card-premium space-y-6">
-                      <div className="flex items-center space-x-4">
-                        <div className="w-16 h-16 bg-primary-100 rounded-2xl flex items-center justify-center text-primary-700 font-semibold text-xl">
+                    <div className="card-premium dark:bg-neutral-deep-brown dark:border-neutral-medium-grey/30 space-y-4 sm:space-y-6">
+                      <div className="flex items-center space-x-3 sm:space-x-4">
+                        <div className="w-14 sm:w-16 h-14 sm:h-16 bg-primary-100 dark:bg-primary-900/20 rounded-xl sm:rounded-2xl flex items-center justify-center text-primary-700 dark:text-primary-400 font-semibold text-lg sm:text-xl">
                           {testimonial.initials}
                         </div>
                         <div className="flex-1">
-                          <h4 className="font-semibold text-xl text-primary-800">
+                          <h4 className="font-semibold text-lg sm:text-xl text-primary-800 dark:text-primary-200">
                             {testimonial.name}
                           </h4>
-                          <p className="text-neutral-medium-grey">
+                          <p className="text-sm sm:text-base text-neutral-medium-grey dark:text-neutral-warm-grey">
                             {testimonial.position}
                           </p>
-                          <p className="text-sm text-neutral-medium-grey">
+                          <p className="text-xs sm:text-sm text-neutral-medium-grey dark:text-neutral-warm-grey">
                             {testimonial.company}
                           </p>
                         </div>
@@ -170,7 +173,7 @@ const Testimonials = () => {
                         {renderStars(testimonial.rating)}
                       </div>
 
-                      <blockquote className="text-neutral-charcoal leading-relaxed text-lg">
+                      <blockquote className="text-neutral-charcoal dark:text-neutral-beige leading-relaxed text-base sm:text-lg">
                         "{testimonial.review}"
                       </blockquote>
                     </div>
@@ -180,24 +183,27 @@ const Testimonials = () => {
             </div>
 
             {/* Mobile navigation */}
-            <div className="flex justify-between items-center mt-8">
+            <div className="flex justify-between items-center mt-6 sm:mt-8">
               <button
                 onClick={prevTestimonial}
-                className="bg-neutral-warm-white p-4 rounded-2xl shadow-gentle hover:shadow-soft transition-all duration-300 border border-neutral-muted-grey/30"
+                className="bg-neutral-warm-white dark:bg-neutral-deep-brown p-3 sm:p-4 rounded-xl sm:rounded-2xl shadow-gentle hover:shadow-soft transition-all duration-300 border border-neutral-muted-grey/30 dark:border-neutral-medium-grey/30"
                 aria-label="Previous testimonial"
               >
-                <FiChevronLeft size={20} className="text-primary-700" />
+                <FiChevronLeft
+                  size={18}
+                  className="text-primary-700 dark:text-primary-400"
+                />
               </button>
 
-              <div className="flex space-x-3">
+              <div className="flex space-x-2 sm:space-x-3">
                 {testimonials.map((_, index) => (
                   <button
                     key={index}
                     onClick={() => goToTestimonial(index)}
                     className={`h-2 rounded-full transition-all duration-300 ${
                       index === currentIndex
-                        ? "w-8 bg-primary-600"
-                        : "w-2 bg-neutral-warm-grey hover:bg-primary-400"
+                        ? "w-6 sm:w-8 bg-primary-600 dark:bg-primary-400"
+                        : "w-2 bg-neutral-warm-grey dark:bg-neutral-medium-grey hover:bg-primary-400 dark:hover:bg-primary-500"
                     }`}
                     aria-label={`Go to testimonial ${index + 1}`}
                   />
@@ -206,33 +212,42 @@ const Testimonials = () => {
 
               <button
                 onClick={nextTestimonial}
-                className="bg-neutral-warm-white p-4 rounded-2xl shadow-gentle hover:shadow-soft transition-all duration-300 border border-neutral-muted-grey/30"
+                className="bg-neutral-warm-white dark:bg-neutral-deep-brown p-3 sm:p-4 rounded-xl sm:rounded-2xl shadow-gentle hover:shadow-soft transition-all duration-300 border border-neutral-muted-grey/30 dark:border-neutral-medium-grey/30"
                 aria-label="Next testimonial"
               >
-                <FiChevronRight size={20} className="text-primary-700" />
+                <FiChevronRight
+                  size={18}
+                  className="text-primary-700 dark:text-primary-400"
+                />
               </button>
             </div>
           </div>
         </div>
 
         {/* Trust indicators */}
-        <div className="mt-20 grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-4xl mx-auto">
-          <div className="text-center space-y-3">
-            <div className="text-4xl font-light text-primary-700">500+</div>
-            <div className="text-sm text-neutral-medium-grey uppercase tracking-wider">
+        <div className="mt-12 sm:mt-20 grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 max-w-4xl mx-auto">
+          <div className="text-center space-y-2 sm:space-y-3">
+            <div className="text-3xl sm:text-4xl font-light text-primary-700 dark:text-primary-400">
+              500+
+            </div>
+            <div className="text-xs sm:text-sm text-neutral-medium-grey dark:text-neutral-warm-grey uppercase tracking-wider">
               Satisfied Clients
             </div>
           </div>
-          <div className="text-center space-y-3">
-            <div className="text-4xl font-light text-primary-700">4.9</div>
-            <div className="text-sm text-neutral-medium-grey uppercase tracking-wider">
+          <div className="text-center space-y-2 sm:space-y-3">
+            <div className="text-3xl sm:text-4xl font-light text-primary-700 dark:text-primary-400">
+              4.9
+            </div>
+            <div className="text-xs sm:text-sm text-neutral-medium-grey dark:text-neutral-warm-grey uppercase tracking-wider">
               Average Rating
             </div>
           </div>
-          <div className="text-center space-y-3">
-            <div className="text-4xl font-light text-primary-700">5</div>
-            <div className="text-sm text-neutral-medium-grey uppercase tracking-wider">
-              Years Excellence
+          <div className="text-center space-y-2 sm:space-y-3">
+            <div className="text-3xl sm:text-4xl font-light text-primary-700 dark:text-primary-400">
+              5
+            </div>
+            <div className="text-xs sm:text-sm text-neutral-medium-grey dark:text-neutral-warm-grey uppercase tracking-wider">
+              Years Experience
             </div>
           </div>
         </div>
