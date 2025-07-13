@@ -11,9 +11,10 @@ const Testimonials = () => {
       initials: "SJ",
       rating: 5,
       review:
-        "Excellent service! The booking process was incredibly smooth, and the car was in perfect condition. EasyDrive made my business trip stress-free.",
+        "Amazing service! The rental process was super smooth and the car was in perfect condition. EasyDrive made my business trip totally stress-free! 🌟",
       location: "Business Executive",
-      color: "bg-pink-500",
+      color: "bg-fun-pink",
+      emoji: "💼",
     },
     {
       id: 2,
@@ -21,9 +22,10 @@ const Testimonials = () => {
       initials: "MC",
       rating: 5,
       review:
-        "Best car rental experience I've had. WhatsApp booking is so convenient, and the team is very responsive. The vehicle was clean and fuel-efficient.",
+        "Best car rental experience ever! WhatsApp rental is so convenient, and the team is super responsive. The car was clean and fuel-efficient! ⭐",
       location: "Travel Enthusiast",
-      color: "bg-blue-500",
+      color: "bg-fun-blue",
+      emoji: "✈️",
     },
     {
       id: 3,
@@ -31,9 +33,10 @@ const Testimonials = () => {
       initials: "ER",
       rating: 5,
       review:
-        "Professional and reliable service. Rented for a family vacation and everything went perfectly. Great rates and friendly customer service.",
+        "Professional and reliable service! Rented for a family vacation and everything went perfectly. Great rates and super friendly customer service! 🎉",
       location: "Family Traveler",
-      color: "bg-green-500",
+      color: "bg-fun-green",
+      emoji: "👨‍👩‍👧‍👦",
     },
     {
       id: 4,
@@ -41,9 +44,10 @@ const Testimonials = () => {
       initials: "DK",
       rating: 5,
       review:
-        "Outstanding experience! Quick response times, transparent pricing, and well-maintained vehicles. Will definitely use EasyDrive again.",
+        "Outstanding experience! Quick response times, transparent pricing, and well-maintained vehicles. Will definitely rent from EasyDrive again! 🚗",
       location: "Frequent Renter",
-      color: "bg-purple-500",
+      color: "bg-fun-yellow",
+      emoji: "🔄",
     },
   ];
 
@@ -89,14 +93,17 @@ const Testimonials = () => {
   return (
     <section
       id="testimonials"
-      className="section-padding bg-gray-50 dark:bg-gray-800"
+      className="section-padding bg-gradient-to-br from-fun-pink/20 to-fun-yellow/20"
     >
       <div className="container">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4">What Our Customers Say</h2>
-          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Don't just take our word for it. Here's what our satisfied customers
-            have to say about their EasyDrive experience.
+          <div className="text-6xl mb-4">💬⭐🎉</div>
+          <h2 className="text-4xl font-bold mb-4 text-gray-800">
+            What Our Happy Customers Say
+          </h2>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            Don't just take our word for it! Here's what our awesome customers
+            have to say about their super fun EasyDrive experience! ✨
           </p>
         </div>
 
@@ -106,29 +113,32 @@ const Testimonials = () => {
             {testimonials.slice(0, 3).map((testimonial) => (
               <div
                 key={testimonial.id}
-                className="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300"
+                className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-xl p-6 hover:shadow-2xl transition-all duration-300 transform hover:scale-105 border-4 border-white"
               >
-                <div className="flex items-center mb-4">
+                <div className="flex items-center mb-6">
                   <div
-                    className={`w-12 h-12 ${testimonial.color} rounded-full flex items-center justify-center text-white font-bold text-lg mr-4`}
+                    className={`w-16 h-16 ${testimonial.color}/80 rounded-full flex items-center justify-center text-gray-800 font-bold text-xl mr-4 shadow-lg border-2 border-white`}
                   >
                     {testimonial.initials}
                   </div>
                   <div>
-                    <h4 className="font-semibold text-lg">
+                    <h4 className="font-bold text-lg text-gray-800">
                       {testimonial.name}
                     </h4>
-                    <p className="text-gray-600 dark:text-gray-400 text-sm">
-                      {testimonial.location}
-                    </p>
+                    <div className="flex items-center gap-1">
+                      <p className="text-gray-600 text-sm">
+                        {testimonial.location}
+                      </p>
+                      <span className="text-lg">{testimonial.emoji}</span>
+                    </div>
                   </div>
                 </div>
 
-                <div className="flex mb-4">
+                <div className="flex mb-4 justify-center bg-fun-yellow/50 rounded-full py-2">
                   {renderStars(testimonial.rating)}
                 </div>
 
-                <blockquote className="text-gray-700 dark:text-gray-300 italic leading-relaxed">
+                <blockquote className="text-gray-700 italic leading-relaxed font-medium bg-gray-50/80 rounded-2xl p-4 border-2 border-fun-blue/20">
                   "{testimonial.review}"
                 </blockquote>
               </div>
@@ -137,35 +147,38 @@ const Testimonials = () => {
 
           {/* Mobile carousel view */}
           <div className="md:hidden">
-            <div className="overflow-hidden rounded-xl">
+            <div className="overflow-hidden rounded-3xl">
               <div
                 className="flex transition-transform duration-500 ease-in-out"
                 style={{ transform: `translateX(-${currentIndex * 100}%)` }}
               >
                 {testimonials.map((testimonial) => (
                   <div key={testimonial.id} className="w-full flex-shrink-0">
-                    <div className="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-6 mx-2">
-                      <div className="flex items-center mb-4">
+                    <div className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-xl p-6 mx-2 border-4 border-white">
+                      <div className="flex items-center mb-6">
                         <div
-                          className={`w-16 h-16 ${testimonial.color} rounded-full flex items-center justify-center text-white font-bold text-xl mr-4`}
+                          className={`w-20 h-20 ${testimonial.color}/80 rounded-full flex items-center justify-center text-gray-800 font-bold text-2xl mr-4 shadow-lg border-2 border-white`}
                         >
                           {testimonial.initials}
                         </div>
                         <div>
-                          <h4 className="font-semibold text-xl">
+                          <h4 className="font-bold text-xl text-gray-800">
                             {testimonial.name}
                           </h4>
-                          <p className="text-gray-600 dark:text-gray-400">
-                            {testimonial.location}
-                          </p>
+                          <div className="flex items-center gap-1">
+                            <p className="text-gray-600">
+                              {testimonial.location}
+                            </p>
+                            <span className="text-xl">{testimonial.emoji}</span>
+                          </div>
                         </div>
                       </div>
 
-                      <div className="flex mb-4">
+                      <div className="flex mb-6 justify-center bg-fun-yellow/50 rounded-full py-3">
                         {renderStars(testimonial.rating)}
                       </div>
 
-                      <blockquote className="text-gray-700 dark:text-gray-300 italic leading-relaxed text-lg">
+                      <blockquote className="text-gray-700 italic leading-relaxed text-lg font-medium bg-gray-50/80 rounded-2xl p-4 border-2 border-fun-blue/20">
                         "{testimonial.review}"
                       </blockquote>
                     </div>
@@ -178,21 +191,21 @@ const Testimonials = () => {
             <div className="flex justify-between items-center mt-6">
               <button
                 onClick={prevTestimonial}
-                className="bg-white dark:bg-gray-800 p-3 rounded-full shadow-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+                className="bg-white/90 p-4 rounded-full shadow-xl hover:bg-white transition-colors hover:scale-110 duration-300 border-2 border-fun-blue/20"
                 aria-label="Previous testimonial"
               >
-                <FiChevronLeft size={24} />
+                <FiChevronLeft size={24} className="text-gray-700" />
               </button>
 
-              <div className="flex space-x-2">
+              <div className="flex space-x-3">
                 {testimonials.map((_, index) => (
                   <button
                     key={index}
                     onClick={() => goToTestimonial(index)}
-                    className={`w-3 h-3 rounded-full transition-colors ${
+                    className={`w-4 h-4 rounded-full transition-all duration-300 transform hover:scale-125 ${
                       index === currentIndex
-                        ? "bg-primary-600 dark:bg-primary-400"
-                        : "bg-gray-300 dark:bg-gray-600 hover:bg-gray-400 dark:hover:bg-gray-500"
+                        ? "bg-primary-600 shadow-lg scale-125"
+                        : "bg-gray-300 hover:bg-gray-400"
                     }`}
                     aria-label={`Go to testimonial ${index + 1}`}
                   />
@@ -201,40 +214,33 @@ const Testimonials = () => {
 
               <button
                 onClick={nextTestimonial}
-                className="bg-white dark:bg-gray-800 p-3 rounded-full shadow-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+                className="bg-white/90 p-4 rounded-full shadow-xl hover:bg-white transition-colors hover:scale-110 duration-300 border-2 border-fun-blue/20"
                 aria-label="Next testimonial"
               >
-                <FiChevronRight size={24} />
+                <FiChevronRight size={24} className="text-gray-700" />
               </button>
             </div>
           </div>
         </div>
 
-        {/* Trust indicators */}
+        {/* Fun trust indicators */}
         <div className="mt-16 text-center">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
-            <div className="flex flex-col items-center">
-              <div className="text-4xl font-bold text-primary-600 dark:text-primary-400 mb-2">
-                500+
-              </div>
-              <div className="text-gray-600 dark:text-gray-400">
-                Happy Customers
-              </div>
+            <div className="flex flex-col items-center bg-fun-green/60 backdrop-blur-sm rounded-3xl p-6 border-4 border-white shadow-lg transform hover:scale-105 transition-transform duration-300">
+              <div className="text-5xl mb-2">🎉</div>
+              <div className="text-4xl font-bold text-gray-800 mb-2">500+</div>
+              <div className="text-gray-700 font-medium">Happy Customers</div>
             </div>
-            <div className="flex flex-col items-center">
-              <div className="text-4xl font-bold text-primary-600 dark:text-primary-400 mb-2">
-                4.9★
-              </div>
-              <div className="text-gray-600 dark:text-gray-400">
-                Average Rating
-              </div>
+            <div className="flex flex-col items-center bg-fun-yellow/60 backdrop-blur-sm rounded-3xl p-6 border-4 border-white shadow-lg transform hover:scale-105 transition-transform duration-300">
+              <div className="text-5xl mb-2">⭐</div>
+              <div className="text-4xl font-bold text-gray-800 mb-2">4.9★</div>
+              <div className="text-gray-700 font-medium">Average Rating</div>
             </div>
-            <div className="flex flex-col items-center">
-              <div className="text-4xl font-bold text-primary-600 dark:text-primary-400 mb-2">
-                3+
-              </div>
-              <div className="text-gray-600 dark:text-gray-400">
-                Years of Service
+            <div className="flex flex-col items-center bg-fun-pink/60 backdrop-blur-sm rounded-3xl p-6 border-4 border-white shadow-lg transform hover:scale-105 transition-transform duration-300">
+              <div className="text-5xl mb-2">🏆</div>
+              <div className="text-4xl font-bold text-gray-800 mb-2">3+</div>
+              <div className="text-gray-700 font-medium">
+                Years of Fun Service
               </div>
             </div>
           </div>
