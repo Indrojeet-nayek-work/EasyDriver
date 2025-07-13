@@ -76,7 +76,7 @@ const Navbar = ({ darkMode, setDarkMode }) => {
           <div className="lg:hidden flex items-center space-x-2 sm:space-x-3">
             <button
               onClick={() => setDarkMode(!darkMode)}
-              className="p-2 sm:p-2.5 rounded-lg bg-neutral-soft-grey dark:bg-neutral-medium-grey hover:bg-neutral-muted-grey dark:hover:bg-neutral-warm-grey text-neutral-charcoal dark:text-neutral-beige transition-colors"
+              className="p-2 sm:p-2.5 rounded-lg bg-neutral-soft-grey dark:bg-dark-card-border hover:bg-neutral-muted-grey dark:hover:bg-dark-card-border-alt text-neutral-charcoal dark:text-dark-primary-text transition-colors"
               aria-label="Toggle dark mode"
             >
               {darkMode ? <FiSun size={16} /> : <FiMoon size={16} />}
