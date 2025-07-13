@@ -15,11 +15,27 @@
 
 @layer components {
   .btn-primary {
-    @apply bg-primary-600 hover:bg-primary-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+    @apply bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white font-semibold py-3 px-6 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 transform hover:scale-105 shadow-lg hover:shadow-xl;
   }
 
   .btn-secondary {
-    @apply bg-accent-500 hover:bg-accent-600 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:ring-offset-2;
+    @apply bg-gradient-to-r from-accent-500 to-accent-600 hover:from-accent-600 hover:to-accent-700 text-white font-semibold py-3 px-6 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:ring-offset-2 transform hover:scale-105 shadow-lg hover:shadow-xl;
+  }
+
+  .btn-fun-green {
+    @apply bg-gradient-to-r from-fun-green to-fun-green-dark hover:from-fun-green-dark hover:to-green-400 text-gray-800 font-semibold py-3 px-6 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-fun-green focus:ring-offset-2 transform hover:scale-105 shadow-lg hover:shadow-xl;
+  }
+
+  .btn-fun-blue {
+    @apply bg-gradient-to-r from-fun-blue to-fun-blue-dark hover:from-fun-blue-dark hover:to-blue-400 text-gray-800 font-semibold py-3 px-6 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-fun-blue focus:ring-offset-2 transform hover:scale-105 shadow-lg hover:shadow-xl;
+  }
+
+  .btn-fun-yellow {
+    @apply bg-gradient-to-r from-fun-yellow to-fun-yellow-dark hover:from-fun-yellow-dark hover:to-yellow-400 text-gray-800 font-semibold py-3 px-6 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-fun-yellow focus:ring-offset-2 transform hover:scale-105 shadow-lg hover:shadow-xl;
+  }
+
+  .btn-fun-pink {
+    @apply bg-gradient-to-r from-fun-pink to-fun-pink-dark hover:from-fun-pink-dark hover:to-pink-400 text-gray-800 font-semibold py-3 px-6 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-fun-pink focus:ring-offset-2 transform hover:scale-105 shadow-lg hover:shadow-xl;
   }
 
   .section-padding {
