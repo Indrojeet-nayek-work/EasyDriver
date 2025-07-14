@@ -89,15 +89,15 @@ const Testimonials = () => {
   return (
     <section
       id="testimonials"
-      className="section-padding bg-neutral-warm-white dark:bg-dark-bg"
+      className="section-padding bg-neutral-warm-white dark:bg-neutral-charcoal"
     >
       <div className="container px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 sm:mb-20 space-y-4 sm:space-y-6">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-primary-800 dark:text-dark-primary-text">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-primary-800 dark:text-primary-200">
             Client
             <span className="font-semibold"> Reviews</span>
           </h2>
-          <p className="text-lg sm:text-xl text-neutral-medium-grey dark:text-dark-muted-text max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl text-neutral-medium-grey dark:text-neutral-warm-grey max-w-3xl mx-auto leading-relaxed">
             Discover why customers choose EasyDrive for their car rental needs.
             Quality service, reflected in every review.
           </p>
@@ -109,20 +109,20 @@ const Testimonials = () => {
             {testimonials.slice(0, 3).map((testimonial) => (
               <div
                 key={testimonial.id}
-                className="card-premium dark:bg-dark-card-border dark:border-dark-card-border-alt space-y-4 sm:space-y-6"
+                className="card-premium dark:bg-neutral-deep-brown dark:border-neutral-medium-grey/30 space-y-4 sm:space-y-6"
               >
                 <div className="flex items-center space-x-3 sm:space-x-4">
-                  <div className="w-12 sm:w-14 h-12 sm:h-14 bg-primary-100 dark:bg-dark-card-border-alt rounded-xl sm:rounded-2xl flex items-center justify-center text-primary-700 dark:text-dark-accent font-semibold text-base sm:text-lg">
+                  <div className="w-12 sm:w-14 h-12 sm:h-14 bg-primary-100 dark:bg-primary-900/20 rounded-xl sm:rounded-2xl flex items-center justify-center text-primary-700 dark:text-primary-400 font-semibold text-base sm:text-lg">
                     {testimonial.initials}
                   </div>
                   <div className="flex-1">
-                    <h4 className="font-semibold text-base sm:text-lg text-primary-800 dark:text-dark-primary-text">
+                    <h4 className="font-semibold text-base sm:text-lg text-primary-800 dark:text-primary-200">
                       {testimonial.name}
                     </h4>
-                    <p className="text-xs sm:text-sm text-neutral-medium-grey dark:text-dark-muted-text">
+                    <p className="text-xs sm:text-sm text-neutral-medium-grey dark:text-neutral-warm-grey">
                       {testimonial.position}
                     </p>
-                    <p className="text-xs text-neutral-medium-grey dark:text-dark-muted-text">
+                    <p className="text-xs text-neutral-medium-grey dark:text-neutral-warm-grey">
                       {testimonial.company}
                     </p>
                   </div>
@@ -132,7 +132,7 @@ const Testimonials = () => {
                   {renderStars(testimonial.rating)}
                 </div>
 
-                <blockquote className="text-neutral-charcoal dark:text-neutral-beige leading-relaxed text-sm sm:text-base">
+                <blockquote className="text-neutral-charcoal dark:text-neutral-warm-grey leading-relaxed text-sm sm:text-base">
                   "{testimonial.review}"
                 </blockquote>
               </div>
