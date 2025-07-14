@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family:
+      "Inter",
+      system-ui,
+      -apple-system,
+      sans-serif;
+    background-color: #fdfcfa;
+    color: #3c362f;
+  }
+
+  body.dark {
+    background-color: #121212;
+    color: #ede4d9;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary-600 hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-600 text-neutral-warm-white font-medium px-6 sm:px-8 py-3 sm:py-4 rounded-lg sm:rounded-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 shadow-gentle hover:shadow-soft border border-primary-700/20 dark:border-primary-400/20;
+  }
+
+  .btn-secondary {
+    @apply bg-neutral-warm-white hover:bg-neutral-beige dark:bg-neutral-medium-grey dark:hover:bg-neutral-warm-grey text-primary-700 dark:text-primary-200 font-medium px-6 sm:px-8 py-3 sm:py-4 rounded-lg sm:rounded-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-300 focus:ring-offset-2 shadow-gentle hover:shadow-soft border border-neutral-warm-grey dark:border-neutral-medium-grey;
+  }
+
+  .btn-outline {
+    @apply bg-transparent hover:bg-primary-50 dark:hover:bg-primary-900/20 text-primary-700 dark:text-primary-400 hover:text-primary-800 dark:hover:text-primary-300 font-medium px-6 sm:px-8 py-3 sm:py-4 rounded-lg sm:rounded-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-300 focus:ring-offset-2 border-2 border-primary-600 dark:border-primary-500 hover:border-primary-700 dark:hover:border-primary-400;
+  }
+
+  .section-padding {
+    @apply py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8;
+  }
+
+  .container {
+    @apply max-w-7xl mx-auto;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .card-premium {
+    @apply bg-neutral-warm-white dark:bg-neutral-deep-brown rounded-xl sm:rounded-2xl shadow-soft border border-neutral-muted-grey/30 dark:border-neutral-medium-grey/30 p-6 sm:p-8 hover:shadow-warm transition-all duration-300;
+  }
+
+  .gradient-warm {
+    background: linear-gradient(135deg, #fef9f3 0%, #f7f1e8 100%);
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, #846148 0%, #9d7956 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+@layer utilities {
+  .prose-premium {
+    @apply text-neutral-charcoal leading-relaxed;
+  }
+
+  .prose-premium h1,
+  .prose-premium h2,
+  .prose-premium h3 {
+    @apply text-primary-800 font-semibold;
+  }
+
+  .prose-premium p {
+    @apply text-neutral-medium-grey;
+  }
+}
