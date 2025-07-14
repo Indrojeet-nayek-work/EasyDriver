@@ -5,15 +5,12 @@ import {
   FiUsers,
   FiWind,
   FiSettings,
-  FiChevronDown,
-  FiChevronUp,
 } from "react-icons/fi";
 
 const FleetCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
-  const [expandedFeatures, setExpandedFeatures] = useState({});
 
   const vehicles = [
     {
@@ -82,11 +79,11 @@ const FleetCarousel = () => {
     setCurrentIndex(index);
   };
 
-  const toggleFeatures = (vehicleId) => {
-    setExpandedFeatures((prev) => ({
-      ...prev,
-      [vehicleId]: !prev[vehicleId],
-    }));
+  const scrollToContact = () => {
+    const contactSection = document.getElementById("contact");
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   // Touch handlers for mobile swipe
@@ -179,11 +176,6 @@ const FleetCarousel = () => {
                             {vehicle.type}
                           </p>
                         </div>
-                        <div className="text-left sm:text-right">
-                          <div className="text-xl sm:text-2xl font-semibold text-primary-700 dark:text-primary-400">
-                            {vehicle.price}
-                          </div>
-                        </div>
                       </div>
 
                       <div className="flex flex-wrap items-center gap-4 sm:gap-6">
@@ -205,59 +197,10 @@ const FleetCarousel = () => {
                         </div>
                       </div>
 
-                      {/* Collapsible Features for Mobile */}
-                      <div className="space-y-3">
-                        <button
-                          onClick={() => toggleFeatures(vehicle.id)}
-                          className="flex items-center justify-between w-full sm:hidden font-semibold text-primary-800 dark:text-primary-200"
-                        >
-                          <span>Key Features</span>
-                          {expandedFeatures[vehicle.id] ? (
-                            <FiChevronUp size={20} />
-                          ) : (
-                            <FiChevronDown size={20} />
-                          )}
-                        </button>
-
-                        {/* Desktop Features - Always Visible */}
-                        <div className="hidden sm:block">
-                          <h4 className="font-semibold text-primary-800 dark:text-primary-200 mb-3">
-                            Key Features
-                          </h4>
-                          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-3">
-                            {vehicle.features.map((feature, index) => (
-                              <div
-                                key={index}
-                                className="px-3 sm:px-4 py-2 bg-neutral-beige dark:bg-neutral-medium-grey/30 rounded-lg sm:rounded-xl text-sm text-neutral-charcoal dark:text-primary-200 border border-neutral-muted-grey/30 dark:border-neutral-medium-grey/30"
-                              >
-                                {feature}
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-
-                        {/* Mobile Features - Collapsible */}
-                        <div
-                          className={`sm:hidden transition-all duration-300 overflow-hidden ${
-                            expandedFeatures[vehicle.id]
-                              ? "max-h-96 opacity-100"
-                              : "max-h-0 opacity-0"
-                          }`}
-                        >
-                          <div className="grid grid-cols-1 gap-2 mt-3">
-                            {vehicle.features.map((feature, index) => (
-                              <div
-                                key={index}
-                                className="px-3 py-2 bg-neutral-beige dark:bg-dark-card-border-alt rounded-lg text-sm text-neutral-charcoal dark:text-dark-primary-text border border-neutral-muted-grey/30 dark:border-dark-card-border"
-                              >
-                                {feature}
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-
-                      <button className="btn-primary w-full">
+                      <button
+                        onClick={scrollToContact}
+                        className="btn-primary w-full"
+                      >
                         Book Vehicle
                       </button>
                     </div>
