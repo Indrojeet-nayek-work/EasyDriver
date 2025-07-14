@@ -52,13 +52,6 @@ const HowItWorks = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12 lg:gap-16">
           {steps.map((step, index) => (
             <div key={step.id} className="relative">
-              {/* Connection line - hidden on mobile, visible on desktop */}
-              {index < steps.length - 1 && (
-                <div className="hidden md:block absolute top-12 left-full w-full h-px bg-gradient-to-r from-neutral-warm-grey dark:from-neutral-warm-grey via-neutral-muted-grey dark:via-neutral-medium-grey/30 to-transparent z-0">
-                  <div className="absolute top-1/2 right-0 transform translate-x-2 -translate-y-1/2 w-2 h-2 bg-neutral-warm-grey dark:bg-neutral-warm-grey rounded-full"></div>
-                </div>
-              )}
-
               <div className="relative z-10 text-center space-y-4 sm:space-y-6">
                 {/* Icon container - Only logo, no numbers */}
                 <div
