@@ -30,7 +30,7 @@ function App() {
   return (
     <SEOWrapper>
       <div className={`min-h-screen ${darkMode ? "dark" : ""}`}>
-        <div className="bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
+        <div className="bg-white dark:bg-neutral-charcoal text-gray-900 dark:text-primary-200 transition-colors duration-300">
           <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
           <main>
             <Hero />

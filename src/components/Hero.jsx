@@ -12,20 +12,20 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center gradient-warm dark:bg-gradient-to-br dark:from-dark-bg dark:to-dark-card-border"
+      className="min-h-screen flex items-center gradient-warm dark:bg-gradient-to-br dark:from-neutral-charcoal dark:to-neutral-deep-brown"
     >
       <div className="container px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center space-y-6 sm:space-y-8 pt-8 sm:pt-16">
           {/* Content */}
           <div className="space-y-6">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-light text-primary-800 dark:text-dark-primary-text leading-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-light text-primary-800 dark:text-primary-200 leading-tight">
               Affordable Car
-              <span className="block font-semibold text-gradient dark:text-dark-accent">
+              <span className="block font-semibold text-gradient dark:text-primary-400">
                 Rental Experience
               </span>
             </h1>
 
-            <p className="text-lg sm:text-xl lg:text-2xl text-neutral-medium-grey dark:text-dark-muted-text leading-relaxed max-w-3xl mx-auto">
+            <p className="text-lg sm:text-xl lg:text-2xl text-neutral-medium-grey dark:text-neutral-warm-grey leading-relaxed max-w-3xl mx-auto">
               Discover quality vehicles and personalized service at competitive
               rates. Your journey begins with our carefully selected fleet.
             </p>
@@ -54,26 +54,26 @@ const Hero = () => {
           {/* Trust indicators */}
           <div className="pt-12 grid grid-cols-3 gap-4 sm:gap-8 max-w-2xl mx-auto">
             <div className="text-center">
-              <div className="text-2xl sm:text-3xl font-semibold text-primary-700 dark:text-dark-accent mb-2">
+              <div className="text-2xl sm:text-3xl font-semibold text-primary-700 dark:text-primary-400 mb-2">
                 500+
               </div>
-              <div className="text-xs sm:text-sm text-neutral-medium-grey dark:text-dark-muted-text uppercase tracking-wide">
+              <div className="text-xs sm:text-sm text-neutral-medium-grey dark:text-neutral-warm-grey uppercase tracking-wide">
                 Satisfied Clients
               </div>
             </div>
             <div className="text-center">
-              <div className="text-2xl sm:text-3xl font-semibold text-primary-700 dark:text-dark-accent mb-2">
+              <div className="text-2xl sm:text-3xl font-semibold text-primary-700 dark:text-primary-400 mb-2">
                 4.9
               </div>
-              <div className="text-xs sm:text-sm text-neutral-medium-grey dark:text-dark-muted-text uppercase tracking-wide">
+              <div className="text-xs sm:text-sm text-neutral-medium-grey dark:text-neutral-warm-grey uppercase tracking-wide">
                 Average Rating
               </div>
             </div>
             <div className="text-center">
-              <div className="text-2xl sm:text-3xl font-semibold text-primary-700 dark:text-dark-accent mb-2">
+              <div className="text-2xl sm:text-3xl font-semibold text-primary-700 dark:text-primary-400 mb-2">
                 5+
               </div>
-              <div className="text-xs sm:text-sm text-neutral-medium-grey dark:text-dark-muted-text uppercase tracking-wide">
+              <div className="text-xs sm:text-sm text-neutral-medium-grey dark:text-neutral-warm-grey uppercase tracking-wide">
                 Years Experience
               </div>
             </div>
